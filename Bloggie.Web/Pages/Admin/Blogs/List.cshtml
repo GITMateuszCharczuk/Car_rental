@@ -1,0 +1,53 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List
+
+<div class="bg-secondary bg-opacity-10 py-2 mb-5">
+    <div class="container">
+        <h1>Blog Posts</h1>
+    </div>
+</div>
+
+<partial name="_Notification"></partial>
+
+@if (Model.BlogPosts != null && Model.BlogPosts.Any())
+{
+    <div class="container">
+        <table class="table table-striped-columns">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            @foreach (var blogPost in Model.BlogPosts!)
+            {
+                <tr>
+                    <td>@blogPost.Id</td>
+                    <td>@blogPost.Heading</td>
+                    <td >
+                        <button type="button" onclick="window.location.href='/Admin/Blogs/Edit/@blogPost.Id';" class="btn btn-outline-primary btn-6">Edit</button>
+                    </td>
+                    <td >
+                        @* <button class="btn btn-outline-success btn-8" >Delete</button> *@
+                        @* <form asp-page-handler="Delete" asp-route-id="@blogPost.Id"> *@
+                        @*     <button class="btn btn-outline-success btn-8">Delete</button> *@
+                        @* </form> *@
+                        <a asp-page-handler="Delete" asp-route-id="@blogPost.Id">Delete</a>
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <p>Blog Post Was Not Found</p>
+    </div>
+}
