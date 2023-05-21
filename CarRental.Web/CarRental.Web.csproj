@@ -21,4 +21,12 @@
     <ItemGroup>
         <Folder Include="Migrations\" />
     </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Tags\Details.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Pages\Blog\Tags\Details.cshtml" />
+    </ItemGroup>
 </Project>

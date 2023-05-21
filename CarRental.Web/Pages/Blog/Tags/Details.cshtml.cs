@@ -1,9 +1,11 @@
 ﻿using CarRental.Web.Models.Domain;
+using CarRental.Web.Models.Domain.Blog;
 using CarRental.Web.Repositories;
+using CarRental.Web.Repositories.BlogRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CarRental.Web.Pages.Tags;
+namespace CarRental.Web.Pages.Blog.Tags;
 
 public class Details : PageModel
 {

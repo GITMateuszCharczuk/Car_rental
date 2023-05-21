@@ -1,0 +1,250 @@
+@page
+@model CarRental.Web.Pages.Admin.CarOffers.Add
+
+@{
+
+}
+
+<div class="bg-secondary bg-opacity-10 py-2 mb-5">
+    <div class="container">
+        <h1>Add Car offer</h1>
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        <form method="post">
+            <div class="mb-3 bg-light rounded-2 border border-2  box-shadow p-2">
+                <h3 class="mb-3 display-6 text-lg-center">Essentials</h3>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="heading" class="form-label">Heading</label>
+                        <input type="text" required class="form-control" id="heading" asp-for="AddCarOfferRequest.Heading">
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.Heading"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="shortDescription" class="form-label">Short Description</label>
+                        <input type="text" class="form-control" required id="shortDescription" asp-for="AddCarOfferRequest.ShortDescription"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.ShortDescription"></span>
+                    </div>
+                </div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="urlHandle" class="form-label">Url Handle</label>
+                        <input type="text" required class="form-control" id="urlHandle" asp-for="AddCarOfferRequest.UrlHandle"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.UrlHandle"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="publishDate" class="form-label">Publish Date</label>
+                        <input type="Date" required class="form-control" id="publishDate" asp-for="AddCarOfferRequest.PublishedDate"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.PublishedDate"></span>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <label for="tags" class="form-label">Tags (coma separated)</label>
+                    <input type="text" required class="form-control" id="tags" asp-for="TagsString">
+                    <span class="text-danger" asp-validation-for="TagsString"></span>
+                </div>
+                <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" id="isVisible" asp-for="AddCarOfferRequest.Visible">
+                    <label class="form-check-label" for="isVisible">
+                        Is Visible
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3 bg-light  box-shadow rounded-2 border border-2 p-2">
+                <h3 class="mb-3 display-6 text-lg-center">Car details</h3>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="Horsepower" class="form-label">Horsepower</label>
+                        <input type="text" required class="form-control" id="Horsepower" asp-for="AddCarOfferRequest.Horsepower">
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.Horsepower"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="YearOfProduction" class="form-label">YearOfProduction</label>
+                        <input type="text" class="form-control" required id="YearOfProduction" asp-for="AddCarOfferRequest.YearOfProduction"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.YearOfProduction"></span>
+                    </div>
+                </div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="EngineDetails" class="form-label">EngineDetails</label>
+                        <input type="text" class="form-control" required id="EngineDetails" asp-for="AddCarOfferRequest.EngineDetails"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.EngineDetails"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="DriveDetails" class="form-label">DriveDetails</label>
+                        <input type="text" class="form-control" required id="DriveDetails" asp-for="AddCarOfferRequest.DriveDetails"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.DriveDetails"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="GearboxDetails" class="form-label">GearboxDetails</label>
+                    <select class="form-select" id="GearboxDetails" aria-label="Gearbox - type" asp-for="AddCarOfferRequest.GearboxDetails">
+                        @* <option selected>Open this select menu</option> *@
+                        <option value="Automatic">Automatic</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Sequential">Sequential</option>
+                    </select>
+                    @* <input type="text" class="form-control" required id="GearboxDetails" asp-for="AddCarOfferRequest.GearboxDetails"/> *@
+                    <span class="text-danger" asp-validation-for="AddCarOfferRequest.GearboxDetails"></span>
+                </div>
+            </div>
+            <div class="mb-3 bg-light  box-shadow rounded-2 border border-2 p-2">
+                <h3 class="mb-3 display-6 text-lg-center">Delivery details</h3>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="CarDeliverylocation" class="form-label">CarDeliverylocation</label>
+                        <input type="text" class="form-control" required id="CarDeliverylocation" asp-for="AddCarOfferRequest.CarDeliverylocation"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.CarDeliverylocation"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="CarReturnLocation" class="form-label">CarReturnLocation</label>
+                        <input type="text" class="form-control" required id="CarReturnLocation" asp-for="AddCarOfferRequest.CarReturnLocation"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.CarReturnLocation"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 bg-light rounded-2 border border-2  box-shadow p-2">
+                <h3 class="mb-3 display-6 text-lg-center">Main image</h3>
+                <div >
+                    <img src="" id="featuredImageDisplay" style="display:none; width: 300px" alt=""/>
+                </div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="featuredImageUpload" class="form-label">Featured Image Upload</label>
+                        <input type="file" class="form-control" id="featuredImageUpload" asp-for="FeaturedImage">
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="featuredImageUrl" class="form-label">Featured Image Url</label>
+                        <input type="text" required class="form-control" id="featuredImageUrl" asp-for="AddCarOfferRequest.FeaturedImageUrl"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.FeaturedImageUrl"></span>
+                    </div>
+                </div>
+                <h3 class="mb-3 display-6 text-lg-center">Gallery</h3> @* *@
+                <div id="gallery" class="mb-3"></div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="galleryImageUpload" class="form-label">Gallery Image Upload</label>
+                        <input type="file" class="form-control" id="galleryImageUpload">
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="galleryImageUrl" class="form-label">Featured Image Url</label>
+                        <input type="text" required class="form-control" id="galleryImageUrl" asp-for="CarGalleryString"/> @* *@
+                        <span class="text-danger" asp-validation-for="CarGalleryString"></span> @*asp-validation-for="CarGalleryString" *@
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-3 bg-light rounded-2 border border-2  box-shadow p-2">
+                <h3 class="mb-3 display-6 text-lg-center">Prices</h3>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-4 p-2 ">
+                        <label for="OneNormalDayPrice" class="form-label">OneNormalDayPrice</label>
+                        <input type="text" required class="form-control" id="OneNormalDayPrice" asp-for="AddCarOfferRequest.OneNormalDayPrice">
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.OneNormalDayPrice"></span>
+                    </div>
+                    <div class="form-group col-md-4 p-2 ">
+                        <label for="OneWeekPrice" class="form-label">OneWeekPrice</label>
+                        <input type="text" required class="form-control" id="OneWeekPrice" asp-for="AddCarOfferRequest.OneWeekPrice"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.OneWeekPrice"></span>
+                    </div>
+                    <div class="form-group col-md-4 p-2 ">
+                        <label for="OneMonthPrice" class="form-label">OneMonthPrice</label>
+                        <input type="text" required class="form-control" id="OneMonthPrice" asp-for="AddCarOfferRequest.OneMonthPrice"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.OneMonthPrice"></span>
+                    </div>
+                </div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="OneWeekendDayPrice" class="form-label">OneWeekendDayPrice</label>
+                        <input type="text" required class="form-control" id="OneWeekendDayPrice" asp-for="AddCarOfferRequest.OneWeekendDayPrice"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.OneWeekendDayPrice"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="FullWeekendPrice" class="form-label">FullWeekendPrice</label>
+                        <input type="text" required class="form-control" id="FullWeekendPrice" asp-for="AddCarOfferRequest.FullWeekendPrice"/>
+                        <span class="text-danger" asp-validation-for="AddCarOfferRequest.FullWeekendPrice"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        const featuredImageUploadElement = document.getElementById('featuredImageUpload');
+        const featuredImageUrl = document.getElementById('featuredImageUrl');
+        const featuredImageDisplay = document.getElementById('featuredImageDisplay');
+        const galleryImageDisplay = document.getElementById('gallery');
+        const galleryImageUrl = document.getElementById('galleryImageUrl');
+        const galleryImageUploadElement = document.getElementById('galleryImageUpload');
+        var cont;
+        var i = 0;
+        async function uploadFeaturedImage(e){
+           console.log(e.target.files[0]);
+           
+           let data = new FormData();
+           data.append('file',e.target.files[0]);
+           
+           await fetch('/api/images',{
+                method: 'POST',
+                headers: {
+                    'Accept':'*/*',
+                },
+                body : data, 
+           }).then(response => response.json())
+           .then(result =>{ 
+               featuredImageUrl.value = result.link;
+               featuredImageDisplay.style.display = 'block';
+               featuredImageDisplay.src = result.link;
+           });
+        }
+        
+        featuredImageUploadElement.addEventListener('change',uploadFeaturedImage);
+        
+        async function uploadGalleryImage(e){
+            console.log(e.target.files[0]);
+                   
+            let data = new FormData();
+            data.append('file',e.target.files[0]);
+                   
+            await fetch('/api/images',{
+                method: 'POST',
+                headers: {
+                        'Accept':'*/*',
+                },
+                body : data, 
+            }).then(response => response.json())
+            .then(result =>{
+                
+                if (i % 3 === 0){
+                    console.log(i);
+                    cont = document.createElement("div");
+                    cont.classList.add("form-row");
+                    cont.classList.add("d-flex");
+                    galleryImageDisplay.appendChild(cont);
+                }
+                i++;
+                var elem = document.createElement("img");
+                elem.setAttribute("src", result.link);
+                elem.classList.add("img-fluid");
+                //elem.classList.add("form-group");
+                elem.classList.add("col-md-4");
+                elem.classList.add("p-2");
+                elem.classList.add("img-thumbnail");
+                cont.appendChild(elem);
+                galleryImageUrl.value = galleryImageUrl.value+","+result.link;
+            });
+        }
+        
+        galleryImageUploadElement.addEventListener('change',uploadGalleryImage);
+        
+    </script>
+}

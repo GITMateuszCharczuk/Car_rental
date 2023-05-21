@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Blog/BlogMainPage">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffersMain">Cars</a>
+                    </li>
 
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
@@ -51,6 +54,19 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="/admin/users/index">Display list of users</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownAdmin">
+                                huj
+                            </a>
+                            <ul class="dropdown-menu" area-lebelledby="navbarDropdownAdmin">
+                                <li>
+                                    <a class="dropdown-item" href="/admin/caroffers/add">Add Car offer</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/admin/caroffers/list">Display list of Car offers</a>
                                 </li>
                             </ul>
                         </li>
@@ -79,14 +95,36 @@
     @RenderBody()
 </main>
 <footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - CarRental.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    @* <div class="container"> *@
+    @*     <div class="form-row mb-3 d-flex"> *@
+    @*         <div class="form-group col-md-4 p-2 "> *@
+    @*             <p>asdfoghnsdfikop;ghbsdfjkgbnkadf ;jksdfgk andfg nadfoj</p> *@
+    @*             <p> o JGIOADF NGOA DFGJKONADFGSZDFGN ASDFOGOADF NGOAD</p> *@
+    @* *@
+    @*         </div> *@
+    @*         <div class="form-group col-md-4 p-2 "> *@
+    @*             <label for="OneWeekPrice" class="form-label">OneWeekPrice</label> *@
+    @*             <input type="text" required class="form-control" id="OneWeekPrice"/> *@
+    @* *@
+    @*         </div> *@
+    @*         <div class="form-group col-md-4 p-2 "> *@
+    @*             <label for="OneMonthPrice" class="form-label">OneMonthPrice</label> *@
+    @*             <input type="text" required class="form-control" id="OneMonthPrice"/> *@
+    @* *@
+    @*         </div> *@
+    @*     </div> *@
+    @* </div> *@
+    <div class="border-top">
+        <div class="container">
+            &copy; 2023 - CarRental.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
     </div>
 </footer>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/3700c855eb.js" crossorigin="anonymous"></script>
 
 @await RenderSectionAsync("Scripts", false)
 </body>

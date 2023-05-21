@@ -1,5 +1,6 @@
 ﻿using CarRental.Web.Models.ViewModels;
 using CarRental.Web.Repositories;
+using CarRental.Web.Repositories.BlogRepo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Web.Controllers;

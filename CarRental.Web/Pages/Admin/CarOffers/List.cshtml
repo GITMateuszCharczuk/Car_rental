@@ -1,0 +1,56 @@
+@page
+@model CarRental.Web.Pages.Admin.CarOffers.List
+
+@{
+   
+}
+
+<div class="bg-secondary bg-opacity-10 py-2 mb-5">
+    <div class="container">
+        <h1>Car offers</h1>
+    </div>
+</div>
+
+<partial name="_Notification"></partial>
+
+@if (Model.CarOffers != null && Model.CarOffers.Any())
+{
+    <div class="container">
+        <table class="table table-striped-columns">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            @foreach (var carOffer in Model.CarOffers!)
+            {
+                <tr>
+                    <td>@carOffer.Id</td>
+                    <td>@carOffer.Heading</td>
+                    <td >
+                        <button type="button" onclick="window.location.href='/Admin/CarOffers/Edit/@carOffer.Id';" class="btn btn-outline-primary btn-6">Edit</button>
+                    </td>
+                    <td >
+                        @* <button class="btn btn-outline-success btn-8" >Delete</button> *@
+                        @* <form asp-page-handler="Delete" asp-route-id="@blogPost.Id"> *@
+                        @*     <button class="btn btn-outline-success btn-8">Delete</button> *@
+                        @* </form> *@
+                        <a asp-page-handler="Delete" asp-route-id="@carOffer.Id">Delete</a>
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <p>Car Offer Was Not Found</p>
+    </div>
+}

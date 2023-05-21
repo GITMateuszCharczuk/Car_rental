@@ -1,9 +1,9 @@
-﻿using CarRental.Web.Models.Domain;
-using CarRental.Web.Repositories;
+﻿using CarRental.Web.Models.Domain.Blog;
+using CarRental.Web.Repositories.BlogRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CarRental.Web.Pages;
+namespace CarRental.Web.Pages.Blog;
 
 public class BlogMainPage : PageModel
 {

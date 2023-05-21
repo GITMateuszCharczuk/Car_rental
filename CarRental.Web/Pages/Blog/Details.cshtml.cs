@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CarRental.Web.Models.Domain;
+using CarRental.Web.Models.Domain.Blog;
 using CarRental.Web.Models.ViewModels;
 using CarRental.Web.Repositories;
+using CarRental.Web.Repositories.BlogRepo;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

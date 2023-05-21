@@ -1,0 +1,128 @@
+@page
+@model CarRental.Web.Pages.CarOffersMain
+@{
+
+}
+
+<!DOCTYPE html>
+<div class="container">
+
+    <h2 class="mb-5 display-3">Blogs</h2>
+
+    <div class="mb-5">
+        @if (Model.Tags != null && Model.Tags.Any())
+        {
+            foreach (var tag in Model.Tags)
+            {
+                <a href="/blog/tags/@tag.Name" style="color: inherit; text-decoration: inherit">
+                    <span class="badge bg-dark">@tag.Name</span>
+                </a>
+            }
+        }
+    </div>
+    @if (Model.CarOffers != null && Model.CarOffers.Any())
+    {
+        @* <div class="bg-white border-b-2 h-auto"> *@
+        <div class="row justify-content-start">
+            @foreach (var carOffer in Model.CarOffers)
+            {
+                <div class="col-4 mb-4">
+                    <div style="border-radius: 20px!important;" class="card ms-2 me-2 shadow p-4 bg-body-tertiary border border-dark rounded-4 h-100 ">
+                        <img style="border-radius: 15px!important;" class="card-img-top" src="@carOffer.FeaturedImageUrl" alt="Card image cap"> @*img-fluid rounded-[24px] object-cover w-full card-img-top*@
+                        <div class="card-body ">
+                            @* card-body *@
+                            <h3 class="card-title mb-3 d-block">@carOffer.Heading</h3>
+                            <ul class="list-group list-group-flush">
+                                <div class="row">
+                                    <div class="col justify-content-center">
+                                        <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
+                                            <i class="bi bi-fire me-1"></i>@carOffer.EngineDetails
+                                        </li>
+                                    </div>
+                                    <div class="col">
+                                        <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
+                                            <i class="bi bi-speedometer2 me-1"></i> @carOffer.Horsepower
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mb-2">
+                                        <li class="border-dark list-group-item border-opacity-25 rounded-3">
+                                            <i class="bi bi-gear-fill me-1"></i>@carOffer.GearboxDetails
+                                        </li>
+                                    </div>
+                                    <div class="col mb-2 ">
+                                        <li class="border-dark list-group-item border-opacity-25 rounded-3"> <i class="fa-solid fa-truck-monster"></i>@carOffer.DriveDetails</li>
+                                    </div>
+                                </div>
+                            </ul>
+                            <div class="grid d-flex justify-content-between ">
+                                <div class="g-col-6 d-flex align-items-center">
+                                    <div class="d-flex">Rent price</div>
+                                </div>
+                                <div class="g-col-6 ">
+                                    <span><span class="fs-4 fw-semibold ">@carOffer.Tarrifs.OneNormalDayPrice</span> usd </span>
+                                    <div class="fw-lighter  text-end">gross</div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-between bg-body-secondary">
+                                <div style="border-radius: 15px!important;" class="col btn btn-dark border-0 mt-3 me-1 lh-lg fs-5">
+                                    details
+                                </div>
+                                <div style="border-radius: 15px!important;" class="col btn btn-danger border-0 mt-3 ms-1 lh-lg fs-5">
+                                    book
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @*             <div class="mx-auto md:mx-0"> *@
+            @*                 <div class="flex flex-col justify-center border border-gray-300 rounded-[16px] max-w-[384px] bg-white shadow-[0_4px_16px_rgba(45,46,49,0.08)] gap-[16px] mb-[10px]"> *@
+            @*                     <div class="w-full flex justify-center items-center"> *@
+            @*                         <img src="@carOffer.FeaturedImageUrl" class="rounded-[24px] object-cover w-full !p-4"> *@
+            @*                     </div> *@
+            @*                     <div class="flex flex-col px-4"> *@
+            @*                         <h3>@carOffer.Heading</h3> *@
+            @*                     </div> *@
+            @*                     <div class="grid grid-cols-2 px-4 justify-center gap-[8px]"> *@
+            @*                         <div class="flex justify-start items-center h-[40px] text-gray-600 border border-gray-300 rounded-[8px] !text-[13px]"> *@
+            @*                             <span>@carOffer.Horsepower</span> *@
+            @*                         </div> *@
+            @*                         <div class="flex justify-start items-center h-[40px] text-gray-600 border border-gray-300 rounded-[8px] !text-[13px]"> *@
+            @*                             <span>@carOffer.EngineDetails</span> *@
+            @*                         </div> *@
+            @*                         <div class="flex justify-start items-center h-[40px] text-gray-600 border border-gray-300 rounded-[8px] !text-[13px]"> *@
+            @*                             <span>@carOffer.GearboxDetails</span> *@
+            @*                         </div> *@
+            @*                         <div class="flex justify-start items-center h-[40px] text-gray-600 border border-gray-300 rounded-[8px] !text-[13px]"> *@
+            @*                             <span>@carOffer.DriveDetails</span> *@
+            @*                         </div> *@
+            @*                     </div> *@
+            @*                     <div class="flex flex-row flex-wrap justify-between self-center h-[45px] w-full px-4"> *@
+            @*                         <p class="flex justify-center items-center text-[13px] text-dark"> *@
+            @*                             Price: *@
+            @*                         </p> *@
+            @*                         <div class="flex flex-col"> *@
+            @*                             <p class="font-bold text-[16px] text-dark">od @carOffer.Tarrifs.OneNormalDayPrice</p> *@
+            @*                             <p class="flex justify-center self-end text-[13px] text-gray-500">brutto</p> *@
+            @*                         </div> *@
+            @*                     </div> *@
+            @*                     <div class="w-full bg-gray-200 rounded-b-[16px]"> *@
+            @*                         <div class="grid grid-cols-2 px-4 items-center h-[80px] gap-[16px]"> *@
+            @*                             <button class="button !flex !justify-center bg-white text-primary text-[14px] !normal-case h-[48px] w-full border rounded-[56px]">Details</button> *@
+            @*                             <button class="btn-dark">Order</button> *@
+            @*                         </div> *@
+            @*                     </div> *@
+            @*                 </div> *@
+            @* </div> *@
+
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <p>Blog Post Was Not Found</p>
+        </div>
+    }
+</div>

@@ -1,4 +1,5 @@
 ﻿using CarRental.Web.Models.Domain;
+using CarRental.Web.Models.Domain.Blog;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Web.Data;

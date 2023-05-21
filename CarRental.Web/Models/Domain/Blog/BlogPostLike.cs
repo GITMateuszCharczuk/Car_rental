@@ -1,4 +1,4 @@
-﻿namespace CarRental.Web.Models.Domain;
+﻿namespace CarRental.Web.Models.Domain.Blog;
 
 public class BlogPostLike
 {

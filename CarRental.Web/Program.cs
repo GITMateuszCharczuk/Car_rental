@@ -1,5 +1,7 @@
 using CarRental.Web.Data;
 using CarRental.Web.Repositories;
+using CarRental.Web.Repositories.BlogRepo;
+using CarRental.Web.Repositories.CarBDRepo;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +16,9 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalAuthDbConnectionString")));
+
+builder.Services.AddDbContext<CarDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalCarDbConnectionString")));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>();
@@ -40,7 +45,9 @@ builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IImageRepository, ImageRepositoryCloudinary>();
 builder.Services.AddScoped<IBlogPostLikeRepository, BlogPostLikeRepository>();
 builder.Services.AddScoped<IBlogPostCommentRepository, BlogPostCommentRepository>();
+builder.Services.AddScoped<ICarOfferRepository, CarOfferRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICarTagRepository, CarTagRepository>();
 
 var app = builder.Build();
 

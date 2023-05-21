@@ -1,8 +1,9 @@
 ﻿using CarRental.Web.Data;
 using CarRental.Web.Models.Domain;
+using CarRental.Web.Models.Domain.Blog;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarRental.Web.Repositories;
+namespace CarRental.Web.Repositories.BlogRepo;
 
 public class BlogPostRepository : IBlogPostRepository
 {

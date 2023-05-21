@@ -1,42 +1,40 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using CarRental.Web.Enums;
 using CarRental.Web.Models.Domain;
-using CarRental.Web.Models.Domain.Blog;
+using CarRental.Web.Models.Domain.CarOffer;
 using CarRental.Web.Models.ViewModels;
-using CarRental.Web.Repositories;
 using CarRental.Web.Repositories.BlogRepo;
-using Microsoft.AspNetCore.Authorization;
+using CarRental.Web.Repositories.CarBDRepo;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CarRental.Web.Pages.Admin.Blogs;
+namespace CarRental.Web.Pages.Admin.CarOffers;
 
-[Authorize(Roles = "Admin")]
 public class List : PageModel
 {
-    private readonly IBlogPostRepository _blogPostRepository;
+    private readonly ICarOfferRepository _carOfferRepository;
 
-    public List(IBlogPostRepository blogPostRepository)
+    public List(ICarOfferRepository carOfferRepository)
     {
-        _blogPostRepository = blogPostRepository;
+        _carOfferRepository = carOfferRepository;
     }
 
-    public List<BlogPost>? BlogPosts { get; set; }
+    public List<CarOffer>? CarOffers { get; set; }
 
     public async Task OnGetAsync()
     {
-        var notificationJson = (string)TempData["Notification"];
+        var notificationJson = (string)TempData["Notification"]!;
         if (notificationJson != null)
             ViewData["Notification"] = JsonSerializer.Deserialize<Notification>(notificationJson);
 
-        BlogPosts = (await _blogPostRepository.GetAllAsync())?.ToList();
+        CarOffers = (await _carOfferRepository.GetAllAsync()).ToList();
     }
 
     public async Task OnGetDeleteAsync(Guid id)
     {
         try
         {
-            await _blogPostRepository.DeleteAsync(id);
-            BlogPosts = (await _blogPostRepository.GetAllAsync())?.ToList();
+            await _carOfferRepository.DeleteAsync(id);
+            CarOffers = (await _carOfferRepository.GetAllAsync())?.ToList();
 
             ViewData["Notification"] = new Notification
             {
@@ -51,7 +49,6 @@ public class List : PageModel
                 Message = "Something went wrong",
                 Type = NotificationType.Error
             };
-            throw;
         }
     }
 }
