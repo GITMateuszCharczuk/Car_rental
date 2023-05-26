@@ -185,72 +185,114 @@
 
 @section Scripts{
     <script>
-        const featuredImageUploadElement = document.getElementById('featuredImageUpload');
-        const featuredImageUrl = document.getElementById('featuredImageUrl');
-        const featuredImageDisplay = document.getElementById('featuredImageDisplay');
-        const galleryImageDisplay = document.getElementById('gallery');
-        const galleryImageUrl = document.getElementById('galleryImageUrl');
-        const galleryImageUploadElement = document.getElementById('galleryImageUpload');
-        var cont;
-        var i = 0;
-        async function uploadFeaturedImage(e){
-           console.log(e.target.files[0]);
-           
-           let data = new FormData();
-           data.append('file',e.target.files[0]);
-           
-           await fetch('/api/images',{
-                method: 'POST',
-                headers: {
-                    'Accept':'*/*',
-                },
-                body : data, 
-           }).then(response => response.json())
-           .then(result =>{ 
-               featuredImageUrl.value = result.link;
-               featuredImageDisplay.style.display = 'block';
-               featuredImageDisplay.src = result.link;
-           });
-        }
-        
-        featuredImageUploadElement.addEventListener('change',uploadFeaturedImage);
-        
-        async function uploadGalleryImage(e){
-            console.log(e.target.files[0]);
-                   
-            let data = new FormData();
-            data.append('file',e.target.files[0]);
-                   
-            await fetch('/api/images',{
-                method: 'POST',
-                headers: {
+        $(document).ready(function () {
+            const featuredImageUploadElement = document.getElementById('featuredImageUpload');
+            const featuredImageUrl = document.getElementById('featuredImageUrl');
+            const featuredImageDisplay = document.getElementById('featuredImageDisplay');
+            const galleryImageUrl = document.getElementById('galleryImageUrl');
+            const galleryImageUploadElement = document.getElementById('galleryImageUpload');
+            
+            loadImages();
+            featuredImageUploadElement.addEventListener('change',uploadFeaturedImage);
+            galleryImageUploadElement.addEventListener('change',uploadGalleryImage);
+
+            async function uploadFeaturedImage(e){
+               console.log(e.target.files[0]);
+               
+               let data = new FormData();
+               data.append('file',e.target.files[0]);
+               
+               await fetch('/api/images',{
+                    method: 'POST',
+                    headers: {
                         'Accept':'*/*',
-                },
-                body : data, 
-            }).then(response => response.json())
-            .then(result =>{
-                
-                if (i % 3 === 0){
-                    console.log(i);
-                    cont = document.createElement("div");
-                    cont.classList.add("form-row");
-                    cont.classList.add("d-flex");
-                    galleryImageDisplay.appendChild(cont);
-                }
-                i++;
-                var elem = document.createElement("img");
-                elem.setAttribute("src", result.link);
-                elem.classList.add("img-fluid");
-                //elem.classList.add("form-group");
-                elem.classList.add("col-md-4");
-                elem.classList.add("p-2");
-                elem.classList.add("img-thumbnail");
-                cont.appendChild(elem);
-                galleryImageUrl.value = galleryImageUrl.value+","+result.link;
-            });
+                    },
+                    body : data, 
+               }).then(response => response.json())
+               .then(result =>{ 
+                   featuredImageUrl.value = result.link;
+                   featuredImageDisplay.style.display = 'block';
+                   featuredImageDisplay.src = result.link;
+               });
+            }
+
+            async function uploadGalleryImage(e){
+                console.log(e.target.files[0]);
+                       
+                let data = new FormData();
+                data.append('file',e.target.files[0]);
+                       
+                await fetch('/api/images',{
+                    method: 'POST',
+                    headers: {
+                            'Accept':'*/*',
+                    },
+                    body : data, 
+                }).then(response => response.json())
+                .then(result =>{
+                    galleryImageUrl.value = galleryImageUrl.value+","+result.link;
+                    while (galleryImageUrl.value.charAt(0) === ',') {
+                        galleryImageUrl.value = galleryImageUrl.value.substring(1);
+                    }
+                    loadImages();
+                });
+            }
+        });
+    function loadImages() {
+        const galleryImageDisplay = document.getElementById('gallery');
+        var cont;
+        const imagesUrlsGalerry = document.getElementById('galleryImageUrl');
+        var imagesUrlsString = imagesUrlsGalerry.value;
+        console.log(imagesUrlsGalerry.value)
+        while (imagesUrlsString.charAt(0) === ',') {
+            imagesUrlsString = imagesUrlsString.substring(1);
         }
-        
-        galleryImageUploadElement.addEventListener('change',uploadGalleryImage);
+                        
+        while (imagesUrlsString.charAt(imagesUrlsString.length - 1) === ',') {
+            imagesUrlsString = imagesUrlsString.substring(0, imagesUrlsString.length - 1);
+        }
+                        
+        var array = imagesUrlsString.split(',');
+                        
+        for(let j = 0; j < array.length; j++) {
+            console.log(array.at(j));
+        }
+                        
+        while (galleryImageDisplay.firstChild) {
+            galleryImageDisplay.removeChild(galleryImageDisplay.firstChild);
+        }
+                        
+        for(let j = 0; j < array.length; j++) {
+            if (j % 3 === 0){
+                cont = document.createElement("div");
+                cont.classList.add("form-row");
+                cont.classList.add("d-flex");
+                galleryImageDisplay.appendChild(cont);
+            }
+            var elem = document.createElement("img");
+            elem.setAttribute("src", array.at(j));
+            elem.classList.add("img-fluid");
+            elem.classList.add("col-md-4");
+            elem.classList.add("btn");
+            elem.classList.add("p-2");
+            elem.classList.add("img-thumbnail");
+            elem.addEventListener('click',deSelectImage)
+            cont.appendChild(elem);
+        }
+    }
+    
+    function deSelectImage(event) {
+        event.preventDefault();
+        const galleryImageUrl = document.getElementById('galleryImageUrl');
+        var imageElem = event.target;
+        var imageSrcString = imageElem.getAttribute('src');
+        galleryImageUrl.value = galleryImageUrl.value.replace(','+imageSrcString, "");
+        galleryImageUrl.value = galleryImageUrl.value.replace(imageSrcString, "");
+        while (galleryImageUrl.value.charAt(0) === ',') {
+            galleryImageUrl.value = galleryImageUrl.value.substring(1);
+        }
+        loadImages();
+    }
         
     </script>
 }

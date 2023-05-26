@@ -1,0 +1,91 @@
+@page
+@using CarRental.Web.Models.Domain.CarOffer
+@model CarOffersMain
+@{
+
+}
+
+<!DOCTYPE html>
+<div class="container">
+
+    <h2 class="mb-5 display-3">Car offers</h2>
+
+    <div class="mb-5">
+        @if (Model.Tags != null && Model.Tags.Any())
+        {
+            foreach (var tag in Model.Tags)
+            {
+                <a href="/caroffers/tags/@tag.Name" style="color: inherit; text-decoration: inherit">
+                    <span class="badge bg-dark">@tag.Name</span>
+                </a>
+            }
+        }
+    </div>
+    @if (Model.CarOffers != null && Model.CarOffers.Any())
+    {
+        @* <div class="bg-white border-b-2 h-auto"> *@
+        <div class="row justify-content-start">
+            @foreach (var carOffer in Model.CarOffers)
+            {
+                <div class="col-lg-4 col-md-6 mb-4 col-sm-12">
+                    <div style="border-radius: 20px!important;" class="card ms-2 me-2 shadow p-4 bg-body-tertiary border border-dark rounded-4 h-100 ">
+                        <img style="border-radius: 15px!important;" class="card-img-top" src="@carOffer.FeaturedImageUrl" alt="Card image cap"> @*img-fluid rounded-[24px] object-cover w-full card-img-top*@
+                        <div class="card-body ">
+                            @* card-body *@
+                            <h3 class="card-title mb-3 d-block">@carOffer.Heading</h3>
+                            <ul class="list-group list-group-flush">
+                                <div class="row">
+                                    <div class="col justify-content-center">
+                                        <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
+                                            <i class="bi bi-fire me-1"></i>@carOffer.EngineDetails
+                                        </li>
+                                    </div>
+                                    <div class="col">
+                                        <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
+                                            <i class="bi bi-speedometer2 me-1"></i> @carOffer.Horsepower
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mb-2">
+                                        <li class="border-dark list-group-item border-opacity-25 rounded-3">
+                                            <i class="bi bi-gear-fill me-1"></i>@carOffer.GearboxDetails
+                                        </li>
+                                    </div>
+                                    <div class="col mb-2 ">
+                                        <li class="border-dark list-group-item border-opacity-25 rounded-3">
+                                            <i class="fa-solid fa-truck-monster me-1"></i>@carOffer.DriveDetails
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                            <div class="grid d-flex justify-content-between ">
+                                <div class="g-col-6 d-flex align-items-center">
+                                    <div class="d-flex">Rent price</div>
+                                </div>
+                                <div class="g-col-6 ">
+                                    <span><span class="fs-4 fw-semibold ">@carOffer.Tarrifs.OneNormalDayPrice</span> usd </span>
+                                    <div class="fw-lighter  text-end">gross</div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-between bg-body-secondary">
+                                <a href="/caroffers/@carOffer.UrlHandle" style="border-radius: 15px!important;" class="col btn btn-dark border-0 mt-3 me-1 lh-lg fs-5">
+                                    details
+                                </a>
+                                <a style="border-radius: 15px!important;" class="col btn btn-danger border-0 mt-3 ms-1 lh-lg fs-5">
+                                    book
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <p>Blog Post Was Not Found</p>
+        </div>
+    }
+</div>

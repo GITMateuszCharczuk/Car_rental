@@ -1,25 +1,15 @@
-@page
-@model CarRental.Web.Pages.CarOffersMain
-@{
+@page "/caroffers/tags/{tagName}"
+@model CarRental.Web.Pages.CarOffers.Tags.Details
 
+@{
+    
 }
 
 <!DOCTYPE html>
 <div class="container">
 
     <h2 class="mb-5 display-3">Blogs</h2>
-
-    <div class="mb-5">
-        @if (Model.Tags != null && Model.Tags.Any())
-        {
-            foreach (var tag in Model.Tags)
-            {
-                <a href="/blog/tags/@tag.Name" style="color: inherit; text-decoration: inherit">
-                    <span class="badge bg-dark">@tag.Name</span>
-                </a>
-            }
-        }
-    </div>
+    
     @if (Model.CarOffers != null && Model.CarOffers.Any())
     {
         @* <div class="bg-white border-b-2 h-auto"> *@

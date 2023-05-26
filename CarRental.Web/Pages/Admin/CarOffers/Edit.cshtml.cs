@@ -23,7 +23,7 @@ public class Edit : PageModel
     }
 
     [BindProperty] [Required] public string TagsString { get; set; }
-    
+
     [BindProperty] public string CarGalleryString { get; set; }
     [BindProperty] public EditCarOfferRequest CarOfferRequest { get; set; }
 
@@ -31,10 +31,12 @@ public class Edit : PageModel
 
     public async Task OnGet(Guid id)
     {
-        
         var carOfferDomainModel = await _carOfferRepository.GetAsync(id);
-        
-        if (carOfferDomainModel != null && carOfferDomainModel.Tags != null && carOfferDomainModel.ImageUrls != null && carOfferDomainModel.Tarrifs != null)
+
+        if (carOfferDomainModel != null
+            && carOfferDomainModel.Tags != null
+            && carOfferDomainModel.ImageUrls != null
+            && carOfferDomainModel.Tarrifs != null)
         {
             CarOfferRequest = new EditCarOfferRequest
             {
@@ -42,7 +44,7 @@ public class Edit : PageModel
                 Heading = carOfferDomainModel.Heading,
                 ShortDescription = carOfferDomainModel.ShortDescription,
                 FeaturedImageUrl = carOfferDomainModel.FeaturedImageUrl,
-                UrlHandle = carOfferDomainModel.Heading,
+                UrlHandle = carOfferDomainModel.UrlHandle,
                 Horsepower = carOfferDomainModel.Horsepower,
                 YearOfProduction = carOfferDomainModel.YearOfProduction,
                 EngineDetails = carOfferDomainModel.EngineDetails,
@@ -58,7 +60,6 @@ public class Edit : PageModel
                 OneMonthPrice = carOfferDomainModel.Tarrifs.OneMonthPrice,
                 Visible = carOfferDomainModel.Visible
             };
-                Console.WriteLine(CarOfferRequest.Id);
             TagsString = string.Join(',', carOfferDomainModel.Tags.Select(x => x.Name));
             CarGalleryString = string.Join(',', carOfferDomainModel.ImageUrls.Select(x => x.Url));
         }
@@ -66,12 +67,12 @@ public class Edit : PageModel
 
     public async Task<IActionResult> OnPost()
     {
-        
         ModelState["FeaturedImage"]!.ValidationState = ModelValidationState.Valid;
-        // if (ModelState.IsValid){
-        Console.WriteLine(CarOfferRequest.Id);
-            // try
-            // {
+        if (ModelState.IsValid)
+        {
+            Console.WriteLine(CarOfferRequest.Id);
+            try
+            {
                 var carOfferDomainModel = new CarOffer
                 {
                     Id = CarOfferRequest.Id,
@@ -114,22 +115,25 @@ public class Edit : PageModel
                     Type = NotificationType.Success
                 };
                 return RedirectToPage("/Admin/CarOffers/List");
-            // }
-            // catch (Exception ex)
-            // {
-            //     ViewData["Notification"] = new Notification
-            //     {
-            //         Message = "Something went wrong",
-            //         Type = NotificationType.Error
-            //     };
-            //     return Page();
-            // }
-            // }
-        ViewData["Notification"] = new Notification
+            }
+            catch (Exception ex)
+            {
+                ViewData["Notification"] = new Notification
+                {
+                    Message = "Something went wrong",
+                    Type = NotificationType.Error
+                };
+                return Page();
+            }
+        }
+        else
         {
-            Message = "Something went wrong",
-            Type = NotificationType.Error
-        };
-        return Page();
+            ViewData["Notification"] = new Notification
+            {
+                Message = "Something went wrong",
+                Type = NotificationType.Error
+            };
+            return Page();
+        }
     }
 }

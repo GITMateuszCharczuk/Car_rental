@@ -1,0 +1,139 @@
+@page
+@using Microsoft.AspNetCore.Identity
+@model CarRental.Web.Pages.CarOffers.CarOrderMain
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div style="border-radius: 15px!important;" class="card col-lg col-md-10 col-md-auto col-sm-10 col pt-3 ps-4 pe-4 pb-3 border border-dark shadow">
+            <form method="post">
+                <h2 class="mb-3 ">Your personal information</h2>
+                <div class="mb-3">
+                    <label for="Name" class="form-label">name</label>
+                    <input type="text" required class="form-control" id="Name" asp-for="CarOrder.Name">
+                    <span class="text-danger" asp-validation-for="CarOrder.Name"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="Surname" class="form-label">surname</label>
+                    <input type="text" required class="form-control" id="Surname" asp-for="CarOrder.Surname">
+                    <span class="text-danger" asp-validation-for="CarOrder.Surname"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="PhoneNumber" class="form-label">phone number</label>
+                    <input type="text" required class="form-control" id="PhoneNumber" asp-for="CarOrder.PhoneNumber">
+                    <span class="text-danger" asp-validation-for="CarOrder.PhoneNumber"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="EmailAddress" class="form-label">email address</label>
+                    <input type="text" required class="form-control" id="EmailAddress" asp-for="CarOrder.EmailAddress">
+                    <span class="text-danger" asp-validation-for="CarOrder.EmailAddress"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="Address" class="form-label">address</label>
+                    <input type="text" required class="form-control" id="Address" asp-for="CarOrder.Address">
+                    <span class="text-danger" asp-validation-for="CarOrder.Address"></span>
+                </div>
+                <div class="mb-3 row">
+                    <div class="mb-3 col">
+                        <label for="Postcode" class="form-label">postcode</label>
+                        <input type="text" required class="form-control" id="Postcode" asp-for="CarOrder.Postcode">
+                        <span class="text-danger" asp-validation-for="CarOrder.Postcode"></span>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="City" class="form-label">city</label>
+                        <input type="text" required class="form-control" id="City" asp-for="CarOrder.City">
+                        <span class="text-danger" asp-validation-for="CarOrder.City"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div style="border-radius: 15px!important;" class="card col-lg col-md-10 mt-sm-5 col-sm-10 pt-3 ps-4 pe-4 pb-3 mx-4 border border-dark shadow">
+            <form method="post">
+                <div class="mb-3">
+                    <h2 > Your reservation</h2>
+                </div>
+                <div class="row justify-content-center mx-1 mb-4">
+                    <input type="Date" class="form-control me-1 col" id="startDate" asp-for="CarOrder.StartDate"/>
+                    <input type="Date" class="form-control ms-1 col" id="endDate" asp-for="CarOrder.EndDate"/>
+                </div>
+                <div class="mb-3">
+                    <label for="DriversLicenseNumber" class="form-label">driver licence number</label>
+                    <input type="text" required class="form-control" id="DriversLicenseNumber" asp-for="CarOrder.DriversLicenseNumber">
+                    <span class="text-danger" asp-validation-for="CarOrder.DriversLicenseNumber"></span>
+                </div>
+                <div class="fw-lighter mb-1 ms-1">Number-of-drivers</div>
+                <div class="row d-flex justify-content-center mx-2 ms-1 mb-1">
+                    <button id="numberOfDriversDecr" class="btn p-0 col-2 me-2 d-block border border-secondary-subtle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                    </button>
+                    <input value="1" class="form-control ps-6 pe-6  col border border-secondary-subtle" id="numberOfDrivers" asp-for="CarOrder.NumOfDrivers"/>
+                    <button id="numberOfDriversIncr" class="btn p-0 col-2 ms-2 d-block border border-secondary-subtle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="fw-lighter mb-4 ms-1">The additional driver surcharge is 200 PLN.</div>
+            </form>
+        </div>
+        <div style="border-radius: 15px!important;" class="card col-lg col-md-10 mt-sm-5 col-sm-10 pt-3 ps-4 pe-4 pb-3 border border-dark shadow">
+            <form method="post">
+                <div class="mb-3">
+                    <h2 > Summary and payment</h2>
+                </div>
+                <div mb-2>
+                    <h5 class="fs-5"> Vehicle </h5>
+                </div>
+                <div class="d-flex justify-content-start align-items-center mb-3">
+                    <img class="d-flex me-2" src="@Model.CarOffer.FeaturedImageUrl" width="10%" height="7%" style="border-radius: 7px!important;" alt="Car offer image"/>
+                    <span class="d-flex">@Model.CarOffer.Heading</span>
+                </div>
+                <div class="mb-2 ms-1">
+                    <h5 class="fs-5"> General Terms and Conditions</h5>
+                </div>
+                <div class="pb-4 border-bottom">
+                    <div class="fw-lighter mb-1 ms-1"><i class="bi bi-bookmark-check me-1"></i>The security deposit - 1500 PLN.</div>
+                    <div class="fw-lighter mb-1 ms-1"><i class="bi bi-bookmark-check me-1"></i>Daily mileage limit: 300 km.</div>
+                    <div class="fw-lighter mb-1 ms-1"><i class="bi bi-bookmark-check me-1"></i>The fee for exceeding the mileage limit is 2 PLN/KM.</div>
+                    <div class="form-check ms-1">
+                        <input class="form-check-input" type="checkbox" id="isVisible">
+                        <label class="form-check-label fw-lighter" for="isVisible">
+                            I agree
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="grid d-flex justify-content-between p-2 pb-3 mb-4" style="border-radius: 7px!important;background-color: #f0f3f8;">
+                        <div class="g-col-6 d-flex align-items-center">
+                            <div class="d-flex fw-bolder fs-4 ms-2">Rent price</div>
+                        </div>
+                        <div class="g-col-6 me-2">
+                            <span class="fw-bold"><span id="totalPrice" class="fs-2">0</span> usd </span>
+                            <div class="fw-lighter  text-end">gross</div>
+                        </div>
+                    </div>
+                </div>
+                
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <button style="border-radius: 19px!important;" type="submit" class="col-12 btn btn-danger border-0 ms fs-6 mb-2">
+                        Pay online
+                    </button>
+                }
+                else
+                {
+                    <button style="border-radius: 19px!important;" type="submit" class="col-12 btn btn-danger border-0 ms fs-5 mb-2 disabled">
+                        book
+                    </button>
+                }
+
+            </form>
+        </div>
+    </div>
+</div>

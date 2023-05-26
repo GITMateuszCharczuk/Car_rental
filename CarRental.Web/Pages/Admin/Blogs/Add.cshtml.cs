@@ -1,10 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using CarRental.Web.Enums;
-using CarRental.Web.Models.Domain;
 using CarRental.Web.Models.Domain.Blog;
 using CarRental.Web.Models.ViewModels;
-using CarRental.Web.Repositories;
 using CarRental.Web.Repositories.BlogRepo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

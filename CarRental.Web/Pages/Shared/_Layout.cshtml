@@ -36,7 +36,7 @@
                         <a class="nav-link text-light" asp-area="" asp-page="/Blog/BlogMainPage">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffersMain">Cars</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffers/CarOffersMain">Cars</a>
                     </li>
 
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
@@ -59,7 +59,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownAdmin">
-                                huj
+                                CarSection
                             </a>
                             <ul class="dropdown-menu" area-lebelledby="navbarDropdownAdmin">
                                 <li>
@@ -91,32 +91,113 @@
         </div>
     </nav>
 </header>
-<main role="main" class="pb-3">
+<main role="main" class="pb-5">
     @RenderBody()
 </main>
-<footer class="border-top footer text-muted">
-    @* <div class="container"> *@
-    @*     <div class="form-row mb-3 d-flex"> *@
-    @*         <div class="form-group col-md-4 p-2 "> *@
-    @*             <p>asdfoghnsdfikop;ghbsdfjkgbnkadf ;jksdfgk andfg nadfoj</p> *@
-    @*             <p> o JGIOADF NGOA DFGJKONADFGSZDFGN ASDFOGOADF NGOAD</p> *@
-    @* *@
+<footer class=" border-top footer" >
+    @* <div class="container py-5"> *@
+    @*     <div class="row"> *@
+    @*         <div class=" col mb-3"> *@
+    @*             <h5 class="mb-3 d-block">About us</h5> *@
+    @*             <p class="text-wrap d-block"> *@
+    @*                 Car rental company<br> *@
+    @*                 1234 Main Street<br> *@
+    @*                 Los Angeles, CA 90001<br> *@
+    @*                 United States *@
+    @*             </p> *@
+    @*             <div class="mt-4"> *@
+    @*                 <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;"> *@
+    @*                     <i class="bi bi-telephone me-2"></i>609544872 *@
+    @*                 </button> *@
+    @*                 <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;"> *@
+    @*                     <i class="bi bi-envelope me-2"></i>car.rental@gmail.com *@
+    @*                 </button> *@
+    @*             </div> *@
     @*         </div> *@
-    @*         <div class="form-group col-md-4 p-2 "> *@
-    @*             <label for="OneWeekPrice" class="form-label">OneWeekPrice</label> *@
-    @*             <input type="text" required class="form-control" id="OneWeekPrice"/> *@
     @* *@
+    @*         <div class=" col mb-3"> *@
+    @*             <h5 class="text-center mb-3">Our Partners</h5> *@
+    @*             <div class="row justify-content-center"> *@
+    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
+    @*                     <a href="#"> *@
+    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*                 <div class="col-6"> *@
+    @*                     <a href="#"> *@
+    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
+    @*                     <a href="#"> *@
+    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*                 <div class="col-6"> *@
+    @*                     <a href="#"> *@
+    @*                         <img class="" src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
+    @*                     <a href="#"> *@
+    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*                 <div class="col-6"> *@
+    @*                     <a href="#"> *@
+    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*             </div> *@
     @*         </div> *@
-    @*         <div class="form-group col-md-4 p-2 "> *@
-    @*             <label for="OneMonthPrice" class="form-label">OneMonthPrice</label> *@
-    @*             <input type="text" required class="form-control" id="OneMonthPrice"/> *@
     @* *@
+    @*         <div class=" col mb-3"> *@
+    @*             <h5 class="mb-3 text-end">Social Media</h5> *@
+    @*             <ul class="nav flex-column fs-4 text-black"> *@
+    @*                 <li class="nav-item mb-2 text-end"> *@
+    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-facebook me-2" width="24" height="24"></i>facebook</a> *@
+    @*                 </li> *@
+    @*                 <li class="nav-item mb-2 text-end"> *@
+    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-instagram me-2" width="24" height="24"></i>instagram</a> *@
+    @*                 </li> *@
+    @*                 <li class="nav-item mb-2 text-end"> *@
+    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-twitter me-2" width="24" height="24"></i>twitter</a> *@
+    @*                 </li> *@
+    @*             </ul> *@
     @*         </div> *@
     @*     </div> *@
     @* </div> *@
+
     <div class="border-top">
-        <div class="container">
-            &copy; 2023 - CarRental.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="container py-4">
+            <div class="d-flex flex-column flex-sm-row justify-content-between ">
+                <div class="d-flex align-items-center">
+                    <p class="mb-0">&copy; 2023 Company, Inc. All rights reserved.</p>
+                </div>
+                <ul class="list-unstyled d-flex align-items-center mb-0">
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi-twitter" width="24" height="24">
+                                <use xlink:href="#twitter"/>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi-instagram" width="24" height="24">
+                                <use xlink:href="#instagram"/>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="#">
+                            <i class="bi-facebook" width="24" height="24">
+                                <use xlink:href="#facebook"/>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </footer>

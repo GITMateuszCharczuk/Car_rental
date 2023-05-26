@@ -26,7 +26,10 @@ public class CarOfferRepository : ICarOfferRepository
 
     public async Task<IEnumerable<CarOffer>> GetAllAsync(string tagName)
     {
-        return await _carDbContext.CarOffers.Include(nameof(BlogPost.Tags))
+        return await _carDbContext.CarOffers
+            .Include(nameof(CarOffer.ImageUrls))
+            .Include(nameof(CarOffer.Tarrifs))
+            .Include(nameof(BlogPost.Tags))
             .Where(x => x.Tags.Any(x => x.Name == tagName))
             .ToListAsync();
     }

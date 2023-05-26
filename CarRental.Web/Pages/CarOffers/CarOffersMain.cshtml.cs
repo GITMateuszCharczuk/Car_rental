@@ -3,7 +3,7 @@ using CarRental.Web.Repositories.CarBDRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CarRental.Web.Pages;
+namespace CarRental.Web.Pages.CarOffers;
 
 public class CarOffersMain : PageModel
 {
