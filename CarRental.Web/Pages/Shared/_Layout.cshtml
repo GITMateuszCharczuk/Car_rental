@@ -91,82 +91,83 @@
         </div>
     </nav>
 </header>
-<main role="main" class="pb-5">
+@* <div style="display: flex; flex-direction: column; justify-content: space-between"> *@
+<main role="main" >
     @RenderBody()
 </main>
 <footer class=" border-top footer" >
-    @* <div class="container py-5"> *@
-    @*     <div class="row"> *@
-    @*         <div class=" col mb-3"> *@
-    @*             <h5 class="mb-3 d-block">About us</h5> *@
-    @*             <p class="text-wrap d-block"> *@
-    @*                 Car rental company<br> *@
-    @*                 1234 Main Street<br> *@
-    @*                 Los Angeles, CA 90001<br> *@
-    @*                 United States *@
-    @*             </p> *@
-    @*             <div class="mt-4"> *@
-    @*                 <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;"> *@
-    @*                     <i class="bi bi-telephone me-2"></i>609544872 *@
-    @*                 </button> *@
-    @*                 <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;"> *@
-    @*                     <i class="bi bi-envelope me-2"></i>car.rental@gmail.com *@
-    @*                 </button> *@
-    @*             </div> *@
-    @*         </div> *@
-    @* *@
-    @*         <div class=" col mb-3"> *@
-    @*             <h5 class="text-center mb-3">Our Partners</h5> *@
-    @*             <div class="row justify-content-center"> *@
-    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
-    @*                     <a href="#"> *@
-    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*                 <div class="col-6"> *@
-    @*                     <a href="#"> *@
-    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
-    @*                     <a href="#"> *@
-    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*                 <div class="col-6"> *@
-    @*                     <a href="#"> *@
-    @*                         <img class="" src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*                 <div class="col-6 d-flex justify-content-end mb-3"> *@
-    @*                     <a href="#"> *@
-    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*                 <div class="col-6"> *@
-    @*                     <a href="#"> *@
-    @*                         <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt=""> *@
-    @*                     </a> *@
-    @*                 </div> *@
-    @*             </div> *@
-    @*         </div> *@
-    @* *@
-    @*         <div class=" col mb-3"> *@
-    @*             <h5 class="mb-3 text-end">Social Media</h5> *@
-    @*             <ul class="nav flex-column fs-4 text-black"> *@
-    @*                 <li class="nav-item mb-2 text-end"> *@
-    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-facebook me-2" width="24" height="24"></i>facebook</a> *@
-    @*                 </li> *@
-    @*                 <li class="nav-item mb-2 text-end"> *@
-    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-instagram me-2" width="24" height="24"></i>instagram</a> *@
-    @*                 </li> *@
-    @*                 <li class="nav-item mb-2 text-end"> *@
-    @*                     <a href="#" class="nav-link p-0 text-black"><i class="bi-twitter me-2" width="24" height="24"></i>twitter</a> *@
-    @*                 </li> *@
-    @*             </ul> *@
-    @*         </div> *@
-    @*     </div> *@
-    @* </div> *@
+    <div class="container py-5">
+        <div class="row">
+            <div class=" col mb-3">
+                <h5 class="mb-3 d-block">About us</h5>
+                <p class="text-wrap d-block">
+                    Car rental company<br>
+                    1234 Main Street<br>
+                    Los Angeles, CA 90001<br>
+                    United States
+                </p>
+                <div class="mt-4">
+                    <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;">
+                        <i class="bi bi-telephone me-2"></i>609544872
+                    </button>
+                    <button class="nav-link btn mb-2 border border-1 text-black" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;">
+                        <i class="bi bi-envelope me-2"></i>car.rental@gmail.com
+                    </button>
+                </div>
+            </div>
+    
+            <div class=" col mb-3">
+                <h5 class="text-center mb-3">Our Partners</h5>
+                <div class="row justify-content-center">
+                    <div class="col-6 d-flex justify-content-end mb-3">
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end mb-3">
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#">
+                            <img class="" src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end mb-3">
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" width="100px" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class=" col mb-3">
+                <h5 class="mb-3 text-end">Social Media</h5>
+                <ul class="nav flex-column fs-4 text-black">
+                    <li class="nav-item mb-2 text-end">
+                        <a href="#" class="nav-link p-0 text-black"><i class="bi-facebook me-2" width="24" height="24"></i>facebook</a>
+                    </li>
+                    <li class="nav-item mb-2 text-end">
+                        <a href="#" class="nav-link p-0 text-black"><i class="bi-instagram me-2" width="24" height="24"></i>instagram</a>
+                    </li>
+                    <li class="nav-item mb-2 text-end">
+                        <a href="#" class="nav-link p-0 text-black"><i class="bi-twitter me-2" width="24" height="24"></i>twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="border-top">
         <div class="container py-4">
@@ -201,6 +202,7 @@
         </div>
     </div>
 </footer>
+@* </div> *@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -209,4 +211,4 @@
 
 @await RenderSectionAsync("Scripts", false)
 </body>
-</html>
+</html> 
