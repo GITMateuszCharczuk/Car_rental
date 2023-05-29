@@ -21,8 +21,12 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Heading</th>
-                <th scope="col">Heading</th>
-                <th scope="col">Heading</th>
+                <th scope="col">Username</th>
+                <th scope="col">StartDate</th>
+                <th scope="col">EndDate</th>
+                <th scope="col">Price</th>
+                <th scope="col">State</th>
+                <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
@@ -31,18 +35,21 @@
             {
                 <tr>
                     <td>@carOrder.Id</td>
-                    <td>@Model.CarOffers.Find(x => x.Id == carOrder.CarOfferId)</td>
+                    <td>@Model.CarOffers.Find(x => x.Id == carOrder.CarOfferId).Heading</td>
                     <td>@carOrder.UserName</td>
                     <td>@carOrder.StartDate</td>
                     <td>@carOrder.EndDate</td>
                     <td>@carOrder.TotalPrice</td>
                     <td>@carOrder.State</td>
                     <td >
+                        <button type="button" onclick="window.location.href='/Admin/CarOrders/Edit/@carOrder.Id';" class="btn btn-outline-primary btn-6">Edit</button>
+                    </td>
+                    <td >
                         @* <button class="btn btn-outline-success btn-8" >Delete</button> *@
                         @* <form asp-page-handler="Delete" asp-route-id="@blogPost.Id"> *@
                         @*     <button class="btn btn-outline-success btn-8">Delete</button> *@
                         @* </form> *@
-                        <a asp-page-handler="Delete" asp-route-id="@carOrder.Id">Delete</a>
+                        <a class="btn btn-outline-success btn-8" asp-page-handler="Delete" asp-route-id="@carOrder.Id">Delete</a>
                     </td>
                 </tr>
             }

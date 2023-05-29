@@ -22,16 +22,17 @@ public class List : PageModel
     
     public List<CarOffer> CarOffers { get; set; }
 
-    public async Task OnGetAsync()
+    public async Task<PageResult> OnGetAsync()
     {
         var notificationJson = (string)TempData["Notification"]!;
         if (notificationJson != null)
             ViewData["Notification"] = JsonSerializer.Deserialize<Notification>(notificationJson);
         CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
         CarOffers = (await _carOfferRepository.GetAllAsync()).ToList();
+        return Page();
     }
 
-    public async Task OnGetDeleteAsync(Guid id)
+    public async Task<PageResult> OnGetDeleteAsync(Guid id)
     {
         try
         {
@@ -52,5 +53,6 @@ public class List : PageModel
                 Type = NotificationType.Error
             };
         }
+        return Page();
     }
 }

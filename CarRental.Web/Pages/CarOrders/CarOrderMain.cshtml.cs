@@ -40,14 +40,21 @@ public class CarOrderMain : PageModel
     
     public async Task<PageResult> OnGetAsync(string urlHandle)
     {
-        CarOffer = await _carOfferRepository.GetAsync(urlHandle);
         
-        var notificationJson = (string)TempData["CarOrderSmall"];
-        CarOrderSmall? carOrderSmall = null;
-        
+        var notificationJson = (string)TempData["Notification"];
         if (notificationJson != null)
         {
-            carOrderSmall = JsonSerializer.Deserialize<CarOrderSmall>(notificationJson);
+            ViewData["Notification"] = JsonSerializer.Deserialize<Notification>(notificationJson);
+        }
+        CarOffer = await _carOfferRepository.GetAsync(urlHandle);
+        
+        var smallOrderJson = (string)TempData["CarOrderSmall"];
+        CarOrderSmall? carOrderSmall = null;
+        
+        if (smallOrderJson != null)
+        {
+            carOrderSmall = JsonSerializer.Deserialize<CarOrderSmall>(smallOrderJson);
+            TempData["CarOrderSmall"] = JsonSerializer.Serialize(carOrderSmall);
         }
         
 
@@ -107,13 +114,19 @@ public class CarOrderMain : PageModel
                 return RedirectToPage("/CarOffers/CarOffersMain");
             }
         } 
-        
+        var notificationError = new Notification
+        {
+            Message = "Something went wrong, try again",
+            Type = NotificationType.Error
+        };
+                
+        TempData["Notification"] = JsonSerializer.Serialize(notificationError);
         return RedirectToPage("/CarOrders/CarOrderMain", new { urlHandle });
     }
     
     private void ValidateAddOrder()
     {
-        if (CarOrder.StartDate.Date < CarOrder.EndDate.Date)
+        if (CarOrder.StartDate.Date > CarOrder.EndDate.Date)
         {
             ModelState.AddModelError("CarOrder.StartDate",
                 $"{nameof(CarOrder.StartDate)} end date must be past start date");

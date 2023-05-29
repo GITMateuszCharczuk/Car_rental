@@ -8,7 +8,7 @@ public class AddCarOrder
 
     [Required]public DateTime EndDate { get; set; }
 
-    [Required][Range(1,100)]public int NumOfDrivers { get; set; }
+    [Required]public int NumOfDrivers { get; set; }
 
     [Required]public string Name { get; set; }
 

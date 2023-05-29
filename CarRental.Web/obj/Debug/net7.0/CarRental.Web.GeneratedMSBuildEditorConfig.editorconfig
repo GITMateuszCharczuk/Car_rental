@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2FyT2ZmZXJzXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Admin/CarOrders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2FyT3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Admin/CarOrders/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2FyT3JkZXJzXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

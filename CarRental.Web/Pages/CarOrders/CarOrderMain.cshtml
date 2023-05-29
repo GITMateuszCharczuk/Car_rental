@@ -9,7 +9,8 @@
 }
 <!DOCTYPE html>
 <form method="post">
-<input type="hidden" name="carOfferIdField" value="@Model.CarOffer.Id"/>
+    <partial name="_Notification"></partial>
+    <input type="hidden" name="carOfferIdField" value="@Model.CarOffer.Id"/>
     <div class="container mt-5">
         <div class="row justify-content-center align-content-start">
             <div style="border-radius: 15px!important;" class="card col-lg col-md-10 col-sm-10 col pt-3 ps-4 pe-4 pb-3 border border-dark shadow">
@@ -66,7 +67,7 @@
                     <input type="text" required class="form-control" id="DriversLicenseNumber" asp-for="CarOrder.DriversLicenseNumber">
                     <span class="text-danger" asp-validation-for="CarOrder.DriversLicenseNumber"></span>
                 </div>
-                <div class="fw-lighter mb-1 ms-1">Number-of-drivers</div>
+                <div class=" mb-1 ms-1">Number-of-drivers</div>
                 <div class="row d-flex justify-content-center mx-2 ms-1 mb-1">
                     <button id="numberOfDriversDecr" class="btn p-0 col-2 me-2 d-block border border-secondary-subtle">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
@@ -134,7 +135,7 @@
                         book
                     </button>
                 }
-                
+
             </div>
         </div>
     </div>

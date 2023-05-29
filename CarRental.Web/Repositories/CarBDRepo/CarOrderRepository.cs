@@ -43,4 +43,35 @@ public class CarOrderRepository : ICarOrderRepository
 
         return false;
     }
+    
+    public async Task<CarOrder> UpdateAsync(CarOrder carOrder)
+    {
+        var existingCarOrder = await _carDbContext.CarOrders
+            .FirstOrDefaultAsync(x => x.Id == carOrder.Id);
+        
+        if (existingCarOrder != null)
+        {
+            existingCarOrder.Id = carOrder.Id;
+            existingCarOrder.Id = carOrder.Id;
+            existingCarOrder.UserId = carOrder.UserId;
+            existingCarOrder.CarOfferId = carOrder.CarOfferId;
+            existingCarOrder.UserName = carOrder.UserName;
+            existingCarOrder.StartDate = carOrder.StartDate;
+            existingCarOrder.EndDate = carOrder.EndDate;
+            existingCarOrder.NumOfDrivers = carOrder.NumOfDrivers;
+            existingCarOrder.Name = carOrder.Name;
+            existingCarOrder.Surname = carOrder.Surname;
+            existingCarOrder.PhoneNumber = carOrder.PhoneNumber;
+            existingCarOrder.EmailAddress = carOrder.EmailAddress;
+            existingCarOrder.Address = carOrder.Address;
+            existingCarOrder.Postcode = carOrder.Postcode;
+            existingCarOrder.City = carOrder.City;
+            existingCarOrder.DriversLicenseNumber = carOrder.DriversLicenseNumber;
+            existingCarOrder.TotalPrice = carOrder.TotalPrice;
+            existingCarOrder.State = carOrder.State;
+        }
+
+        await _carDbContext.SaveChangesAsync();
+        return existingCarOrder;
+    }
 }

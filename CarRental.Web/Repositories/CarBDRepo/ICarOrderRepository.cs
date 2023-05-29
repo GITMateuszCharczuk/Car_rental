@@ -8,4 +8,5 @@ public interface ICarOrderRepository
     Task<CarOrder> GetAsync(Guid id);
     Task<CarOrder> AddAsync(CarOrder carOrder);
     Task<bool> DeleteAsync(Guid id);
+    Task<CarOrder> UpdateAsync(CarOrder carOrder);
 }
