@@ -1,32 +1,28 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace CarRental.Web.Models.ViewModels;
 
 public class AddCarOrder
 {
-    public Guid CarOfferId { get; set; }
+    [Required]public DateTime StartDate { get; set; }
 
-    public Guid UserId { get; set; }
+    [Required]public DateTime EndDate { get; set; }
 
-    public string UserName { get; set; }
+    [Required][Range(1,100)]public int NumOfDrivers { get; set; }
 
-    public DateTime StartDate { get; set; }
+    [Required]public string Name { get; set; }
 
-    public DateTime EndDate { get; set; }
+    [Required]public string Surname { get; set; }
 
-    public int NumOfDrivers { get; set; }
+    [Required]public int PhoneNumber { get; set; }
 
-    public string Name { get; set; }
+    [Required]public string EmailAddress { get; set; }
 
-    public string Surname { get; set; }
+    [Required]public string Address { get; set; }
 
-    public int PhoneNumber { get; set; }
+    [Required]public string Postcode { get; set; }
 
-    public string EmailAddress { get; set; }
+    [Required]public string City { get; set; }
 
-    public string Address { get; set; }
-
-    public string Postcode { get; set; }
-
-    public string City { get; set; }
-
-    public string DriversLicenseNumber { get; set; }
+    [Required]public string DriversLicenseNumber { get; set; }
 }

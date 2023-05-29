@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2FyT2ZmZXJzXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Admin/CarOrders/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2FyT3JkZXJzXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Admin/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,12 +74,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyT2ZmZXJzXENhck9mZmVyc01haW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/CarOffers/CarOrderMain.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyT2ZmZXJzXENhck9yZGVyTWFpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/CarOffers/Tags/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyT2ZmZXJzXFRhZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyT3JkZXJzXENhck9yZGVyTWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Error.cshtml]
@@ -121,3 +125,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-k17sufx1e1
+
+[C:/Users/mateu/Documents/GitHub/Car_rental/CarRental.Web/Pages/Shared/_LayoutPlain.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRQbGFpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-cwn0ltw8qd

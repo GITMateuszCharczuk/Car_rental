@@ -13,6 +13,7 @@ public class CarDbContext : DbContext
 
     public DbSet<CarTag> CarTags { get; set; }
     public DbSet<CarOrder> CarOrders { get; set; }
+    
     public DbSet<Tarrif> Tarrifs { get; set; }
     public DbSet<ImageUrl> ImageUrls { get; set; }
     public DbSet<CarOffer> CarOffers { get; set; }

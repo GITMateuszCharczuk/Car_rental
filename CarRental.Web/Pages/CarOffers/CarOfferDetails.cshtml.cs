@@ -45,14 +45,14 @@ public class CarOfferDetails : PageModel
         return Page();
     }
 
-    public Task<IActionResult> OnPost(string urlHandle)
+    public async Task<IActionResult> OnPost(string urlHandle)
     {
         if (_signInManager.IsSignedIn(User))
         {
-            CarOrderSmall.UrlHandle = urlHandle;
             TempData["CarOrderSmall"] = JsonSerializer.Serialize(CarOrderSmall);
+            return RedirectToPage("/CarOrders/CarOrderMain", new { urlHandle });
         }
 
-        return Task.FromResult<IActionResult>(RedirectToPage("/CarOffers/CarOrderMain"));
+        return Page();
     }
 }

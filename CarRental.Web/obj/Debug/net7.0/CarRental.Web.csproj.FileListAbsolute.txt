@@ -92,3 +92,4 @@ C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\refint
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\CarRental.Web.pdb
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\CarRental.Web.genruntimeconfig.cache
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\ref\CarRental.Web.dll
+C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\scopedcss\Pages\Shared\_LayoutPlain.cshtml.rz.scp.css

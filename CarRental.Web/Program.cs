@@ -48,6 +48,7 @@ builder.Services.AddScoped<IBlogPostCommentRepository, BlogPostCommentRepository
 builder.Services.AddScoped<ICarOfferRepository, CarOfferRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICarTagRepository, CarTagRepository>();
+builder.Services.AddScoped<ICarOrderRepository, CarOrderRepository>();
 
 var app = builder.Build();
 
