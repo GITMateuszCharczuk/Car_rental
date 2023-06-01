@@ -38,7 +38,6 @@ public class Add : PageModel
         ModelState["FeaturedImage"]!.ValidationState = ModelValidationState.Valid;
         if (ModelState.IsValid)
         {
-            CarGalleryString = CarGalleryString.Substring(1);
             var carOffer = new CarOffer
             {
                 Heading = AddCarOfferRequest.Heading,

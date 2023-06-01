@@ -24,11 +24,54 @@ public class List : PageModel
 
     public async Task<PageResult> OnGetAsync()
     {
+        
+
         var notificationJson = (string)TempData["Notification"]!;
         if (notificationJson != null)
+        {
             ViewData["Notification"] = JsonSerializer.Deserialize<Notification>(notificationJson);
-        CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
+        }
+
         CarOffers = (await _carOfferRepository.GetAllAsync()).ToList();
+        var carOrdersTemp = (await _carOrderRepository.GetAllAsync()).ToList();
+
+        int numOfDeletedOffers = 0;
+        var deleteAsyncResult = true;
+        foreach (var carOrder in carOrdersTemp)
+        {
+            if (carOrder.EndDate < DateTime.Today || carOrder.State.Equals("Expired"))
+            {
+                try
+                {
+                    var result = (await _carOrderRepository.DeleteAsync(carOrder.Id));
+                    deleteAsyncResult = result && deleteAsyncResult;
+                    numOfDeletedOffers++;
+                }
+                catch (Exception e)
+                {
+                    CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
+                    SendErrorMessage();
+                    return Page();
+                }
+            }
+        }
+
+        if (deleteAsyncResult)
+        {
+            if (numOfDeletedOffers > 0)
+            {
+                ViewData["Notification2"]= new Notification
+                {
+                    Message = numOfDeletedOffers+" Expired orders deleted!!!",
+                    Type = NotificationType.Info
+                };
+            }
+        }
+        else
+        {
+            SendErrorMessage();
+        }
+        CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
         return Page();
     }
 
@@ -54,5 +97,14 @@ public class List : PageModel
             };
         }
         return Page();
+    }
+    
+    void SendErrorMessage()
+    {
+        ViewData["Notification2"] = new Notification
+        {
+            Message = "Something went wrong, while deleting old offers!!!",
+            Type = NotificationType.Error
+        };
     }
 }

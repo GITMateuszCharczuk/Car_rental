@@ -1,27 +1,151 @@
 ﻿@page
 @model IndexModel
 @{
-    // tu zmienić
     ViewData["Title"] = "Home page";
 }
-
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-5 py-5">
-        <div class="col-12 col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">
-                Bloggie - The Dev Blog
-            </h1>
-            <p class="lead">
-                Blogiie is the home to coding blogs covering a vest range of
-                tpopiccs like HTML, CSS, Javascript, ASP.NET, C#, etc.
-                Want to read the lastest dev articles? Join the bloggie and get weekly blogs right
-                in your email
-            </p>
-        </div>
-        <div class="col-12 col-lg-6">
-            <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
-                 class="d-block mx-lg-auto img-fluid">
+<div style="background-image: url('https://res.cloudinary.com/dpg94mnti/image/upload/v1685554433/pexels-mike-bird-120049_vn8ovt.jpg');
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-position: center;
+                 width: 100%;
+                 ">
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-5 py-5 my-5 ">
+            <div class="col-12 justify-content-center d-flex">
+                <div class="justify-content-center col-9">
+                    <div class="col box-shadow">
+                        <h1 class="display-5 text-white fw-bolder lh-1 mb-5 " style="font-size: 350%!important;">
+                            Start your own journey
+                        </h1>
+                        <div class="justify-content-start col-7">
+                            <h3 class="lead fw-normal mb-5 text-white">
+                                Embark on your adventure with our hassle-free car rental service, empowering you to start your own journey wherever the road may take you.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<div class="container pt-5 mt-5">
+    <h1 class="mb-3">New stuff</h1>
+    <div style="overflow-x: scroll" class="mb-3">
+        <div style=";width: fit-content" class="scrollbar">
+            <div class="mb-3 justify-content-start d-flex">
+                @if (Model.CarOffers != null && Model.CarOffers.Any())
+                {
+                    foreach (var carOffer in Model.CarOffers)
+                    {
+                        <div style="width: 400px" class="px-2 h-100">
+                            <div style="border-radius: 20px!important;" class="card shadow p-2">
+                                <div class="card-img-top img-fluid mb-1">
+                                    <img style="width: 100%; border-radius: 14px!important;" src="@carOffer.FeaturedImageUrl" alt="@carOffer.Heading">
+                                </div>
+                                <div class="card-body mb-1">
+                                    <h5 class="fw-bolder">@carOffer.Heading</h5>
+                                    <p class="lead">@carOffer.Horsepower hp</p>
+                                </div>
+                                <div style="border-radius: 10px" class="bg-light  py-2 px-3">
+                                    <div class="row">
+                                        <div style="display: flex" class="col-8 pe-4 fw-bolder align-items-center ">
 
+                                            from @carOffer.Tarrifs.OneNormalDayPrice USD
+
+                                        </div>
+                                        <div style="display: flex" class="col-4 align-items-center  justify-content-end">
+                                            <a href="/caroffers/@carOffer.UrlHandle" style="border-radius: 10px!important;" class="btn btn-danger border-1 ">
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="container">
+                        <p>Car offer Was Not Found</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <h1 class="mb-3 pt-5 mt-5">Latest news</h1>
+    <div class="row">
+        @if (Model.LatestBlogPosts != null && Model.LatestBlogPosts.Any())
+        {
+            foreach (var blogPost in Model.LatestBlogPosts)
+            {
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 px-3  mb-3">
+                    <div style="border-radius: 20px!important;height: 100%" class="card shadow p-2">
+                        <div class="card-img-top img-fluid mb-4">
+                            <img style="width: 100%; border-radius: 14px!important;" src="@blogPost.FeaturedImageUrl" alt="@blogPost.Heading">
+                        </div>
+                        <div class="card-body border-bottom">
+                            <h5 class="fw-bolder mb-4">@blogPost.Heading</h5>
+                            <p class="lead mb-3">@blogPost.ShortDescription</p>
+                        </div>
+                        <div class="d-flex justify-content-between p-3">
+                            <div class="d-flex align-items-center">
+                                @blogPost.PublishedDate.ToShortDateString()
+                            </div>
+                            <div >
+                                <a href="/blog/@blogPost.UrlHandle" class="nav-link text-danger">Write more <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="container">
+                <p>Blog Post Was Not Found</p>
+            </div>
+        }
+    </div>
+    <h1 class="mb-5 pt-5 mt-5">About us</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <div class="col-4 pe-4">
+            <img style="border-radius: 30px" class="img-fluid" src="https://res.cloudinary.com/dpg94mnti/image/upload/v1685568197/800px-Andrzej_Person_Kancelaria_Senatu_u84d1u.jpg" alt="Ceo and Founder">
+        </div>
+        <div class="col-6 ps-4 align-items-center d-flex">
+            <div>
+                <h1 class="mb-4">Seweryn Chrzęszczodyrski</h1>
+                <p class="mb-4">CEO and founder of Car Rental Company.</p>
+                <p class="mb-4">The hardworking entrepreneur tirelessly revolutionized the industry through unwavering dedication, innovation, and a relentless pursuit of excellence.</p>
+                <p class="mb-4">In the summer season, it may happen that he will be the one renting you a car.</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-3">
+        <div class="col-6 ps-4 align-items-center d-flex">
+            <div>
+                <h1 class="mb-4">Prawdźimir Zasadowski</h1>
+                <p class="mb-4">Co-Founder of Car Rental Company.</p>
+                <p class="mb-4">The pillar of strength of the car renting company drives growth through strategic collaboration, innovative initiatives, and valuable partnerships, ensuring market expansion and a strong position in the competitive car rental industry.</p>
+                <p class="mb-4">Brings innovation by introducing innovative solutions and ideas.</p>
+            </div>
+        </div>
+        <div class="col-4 pe-4">
+            <img style="border-radius: 30px" class="img-fluid" src="https://res.cloudinary.com/dpg94mnti/image/upload/v1685568197/photo-1500648767791-00dcc994a43e_c5d0u3.jpg" alt="Co-founder">
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-between mb-5">
+        <div class="col-4 pe-4">
+            <img style="border-radius: 30px" class="img-fluid" src="https://res.cloudinary.com/dpg94mnti/image/upload/v1685568197/istockphoto-123935971-170667a_nbwpfn.webp" alt="Ceo and Founder">
+        </div>
+        <div class="col-6 ps-4 align-items-center d-flex">
+            <div>
+                <h1 class="mb-4">Waldemar Stodoła</h1>
+                <p class="mb-4">Main technician and mechanic.</p>
+                <p class="mb-4">Qualified handyman that diligently maintains and ensures the optimal condition of vehicles, demonstrating expertise, attention to detail, and a strong commitment to providing safe and reliable transportation options.</p>
+                <p class="mb-4">He probably changed oil in car that you will rent, several times.</p>
+            </div>
+        </div>
+    </div>
+</div>

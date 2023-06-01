@@ -17,7 +17,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow">
         <div class="container">
             <a class="navbar-brand" asp-area="" asp-page="/Index">CarRental.Web</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -30,14 +30,15 @@
                         <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffers/CarOffersMain">Cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Blog/BlogMainPage">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffers/CarOffersMain">Cars</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
                     </li>
+
 
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
@@ -67,6 +68,9 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="/admin/caroffers/list">Display list of Car offers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/admin/carorders/list">Display list of orders</a>
                                 </li>
                             </ul>
                         </li>

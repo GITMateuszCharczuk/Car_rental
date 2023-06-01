@@ -27,22 +27,22 @@
         <div class="row justify-content-start">
             @foreach (var carOffer in Model.CarOffers)
             {
-                <div class="col-lg-4 col-md-6 mb-4 col-sm-12">
-                    <div style="border-radius: 20px!important;" class="card ms-2 me-2 shadow p-4 bg-body-tertiary border border-dark rounded-4 h-100 ">
+                <div class="col-lg-4 col-md-6 mb-5 col-sm-12">
+                    <div style="border-radius: 20px!important;" class="card mx-1 shadow p-3 bg-body-tertiary border border-dark rounded-4 h-100 ">
                         <img style="border-radius: 15px!important;" class="card-img-top" src="@carOffer.FeaturedImageUrl" alt="Card image cap"> @*img-fluid rounded-[24px] object-cover w-full card-img-top*@
                         <div class="card-body ">
                             @* card-body *@
                             <h3 class="card-title mb-3 d-block">@carOffer.Heading</h3>
                             <ul class="list-group list-group-flush">
                                 <div class="row">
-                                    <div class="col justify-content-center">
+                                    <div class="col">
                                         <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
-                                            <i class="bi bi-fire me-1"></i>@carOffer.EngineDetails
+                                            <div><i class="bi bi-fire me-1"></i>@carOffer.EngineDetails</div>
                                         </li>
                                     </div>
                                     <div class="col">
                                         <li class="border-dark list-group-item border-opacity-25 mb-1 rounded-3">
-                                            <i class="bi bi-speedometer2 me-1"></i> @carOffer.Horsepower
+                                            <i class="bi bi-speedometer2 me-1"></i>@carOffer.Horsepower hp
                                         </li>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="col mb-2 ">
                                         <li class="border-dark list-group-item border-opacity-25 rounded-3">
-                                            <i class="fa-solid fa-truck-monster me-1"></i>@carOffer.DriveDetails
+                                            <i class="bi bi-circle me-1"></i>@carOffer.DriveDetails
                                         </li>
                                     </div>
                                 </div>

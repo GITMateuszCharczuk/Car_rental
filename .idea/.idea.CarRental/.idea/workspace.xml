@@ -11,26 +11,21 @@
   <component name="ChangeListManager">
     <list default="true" id="c4ba8a0b-fc70-4305-b52c-16dba4077f75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarRental/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarRental/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Models/ViewModels/AddCarOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Models/ViewModels/AddCarOrder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/BlogMainPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/BlogMainPage.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOfferDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOfferDetails.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOffersMain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOffersMain.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Logout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Logout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Repositories/CarBDRepo/CarOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Repositories/CarBDRepo/CarOrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Repositories/CarBDRepo/ICarOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Repositories/CarBDRepo/ICarOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_LayoutPlain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_LayoutPlain.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/ref/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/ref/CarRental.Web.dll" afterDir="false" />
@@ -175,6 +170,13 @@
       <workItem from="1685299693120" duration="1375000" />
       <workItem from="1685359031823" duration="9422000" />
       <workItem from="1685378247023" duration="12118000" />
+      <workItem from="1685397296329" duration="3511000" />
+      <workItem from="1685443099492" duration="1125000" />
+      <workItem from="1685462663934" duration="5133000" />
+      <workItem from="1685467914143" duration="2144000" />
+      <workItem from="1685553637056" duration="15022000" />
+      <workItem from="1685619403682" duration="424000" />
+      <workItem from="1685622297247" duration="3256000" />
     </task>
     <servers />
   </component>

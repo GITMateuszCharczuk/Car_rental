@@ -49,7 +49,7 @@ builder.Services.AddScoped<ICarOfferRepository, CarOfferRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICarTagRepository, CarTagRepository>();
 builder.Services.AddScoped<ICarOrderRepository, CarOrderRepository>();
-
+builder.Services.AddSession();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -62,7 +62,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
