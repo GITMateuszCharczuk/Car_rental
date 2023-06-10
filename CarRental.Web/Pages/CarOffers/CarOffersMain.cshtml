@@ -6,9 +6,9 @@
 }
 
 <!DOCTYPE html>
-<div class="container">
-    <partial name="_Notification"></partial>
+<div class="container mt-4">
     
+    <partial name="_Notification"></partial>
 
     <div class="mb-5 mt-3">
         @if (Model.Tags != null && Model.Tags.Any())
@@ -23,16 +23,15 @@
     </div>
     @if (Model.CarOffers != null && Model.CarOffers.Any())
     {
-        @* <div class="bg-white border-b-2 h-auto"> *@
         <div class="row justify-content-start">
             @foreach (var carOffer in Model.CarOffers)
             {
-                <div class="col-lg-4 col-md-6 mb-5 col-sm-12">
+                <div class="col-xl-4 col-lg-6 col-md-12 mb-5 col-sm-12">
                     <div style="border-radius: 20px!important;" class="card mx-1 shadow p-3 bg-body-tertiary border border-dark rounded-4 h-100 ">
-                        <img style="border-radius: 15px!important;" class="card-img-top" src="@carOffer.FeaturedImageUrl" alt="Card image cap"> @*img-fluid rounded-[24px] object-cover w-full card-img-top*@
+                        <img style="border-radius: 15px!important;" class="card-img-top" src="@carOffer.FeaturedImageUrl" alt="Card image cap">
                         <div class="card-body ">
                             @* card-body *@
-                            <h3 class="card-title mb-3 d-block">@carOffer.Heading</h3>
+                            <h3 class="card-title mb-3 d-block text-nowrap">@carOffer.Heading</h3>
                             <ul class="list-group list-group-flush">
                                 <div class="row">
                                     <div class="col">

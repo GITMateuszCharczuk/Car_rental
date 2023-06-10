@@ -4,12 +4,13 @@
     // tu zmienić
     ViewData["Title"] = "Home page";
 }
-
-<div class="container">
-
-    <div class="text-center my-3">
+<div class="bg-secondary bg-opacity-10 py-2 mb-2">
+    <div class="container">
         <h1>Blogs</h1>
     </div>
+</div>
+<div class="container">
+    
     <div class="mb-5">
         @if (Model.Tags != null && Model.Tags.Any())
         {
@@ -21,14 +22,14 @@
             }
         }
     </div>
-    <div class="row justify-content-start">
+    <div class="row justify-content-start mb-5">
 
         @if (Model.Blogs != null && Model.Blogs.Any())
         {
             @foreach (var blog in Model.Blogs)
             {
-                <div class="col-lg-6 col-md-12 col-sm-12 px-lg-2 px-sm-5 px-md-5">
-                    <div  class="mb-5 bg-light box-shadow border border-dark">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 px-xl-2 px-sm-5 px-md-5 px-lg-5">
+                    <div  class="mb-3 bg-light box-shadow border border-dark">
                         <img src="@blog.FeaturedImageUrl" alt="@blog.Heading" class="mb-2 d-block img-fluid"/>
                         <div class="px-4 py-4">
                             <h2 class="mb-2">@blog.Heading</h2>

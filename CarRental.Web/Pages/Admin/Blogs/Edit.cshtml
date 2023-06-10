@@ -143,7 +143,13 @@ else
                });
             }
             
-            featuredImageUploadElement.addEventListener('change',uploadFeaturedImage);
+            function loadFeaturedImage(){
+                    const featuredImageDisplay = document.getElementById('featuredImageDisplay');
+                    featuredImageDisplay.style.display = 'block';
+                    featuredImageDisplay.src = document.getElementById('featuredImageUrl').value;
+                }
             
+            featuredImageUploadElement.addEventListener('change',uploadFeaturedImage);
+            loadFeaturedImage();
         </script>
 }

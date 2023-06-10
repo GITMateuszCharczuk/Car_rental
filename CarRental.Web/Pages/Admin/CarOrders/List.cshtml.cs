@@ -24,8 +24,6 @@ public class List : PageModel
 
     public async Task<PageResult> OnGetAsync()
     {
-        
-
         var notificationJson = (string)TempData["Notification"]!;
         if (notificationJson != null)
         {
@@ -69,6 +67,7 @@ public class List : PageModel
         }
         else
         {
+            CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
             SendErrorMessage();
         }
         CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
@@ -81,7 +80,7 @@ public class List : PageModel
         {
             await _carOrderRepository.DeleteAsync(id);
             CarOrders = (await _carOrderRepository.GetAllAsync()).ToList();
-
+            CarOffers = (await _carOfferRepository.GetAllAsync()).ToList();
             ViewData["Notification"] = new Notification
             {
                 Message = "Record deleted successfully",

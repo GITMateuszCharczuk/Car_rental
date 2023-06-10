@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mail;
+using CarRental.Web.Controllers;
 using CarRental.Web.Enums;
 using CarRental.Web.Models.Domain.CarOffer;
 using CarRental.Web.Models.ViewModels;
@@ -24,6 +25,7 @@ public class CarOrderMain : PageModel
     private readonly UserManager<IdentityUser> _userManager;
     private readonly ICarOrderRepository _carOrderRepository;
     private readonly ISession _session;
+    private readonly EmailSender _emailSender;
     public CarOffer CarOffer { get; set; }
 
     [BindProperty] public AddCarOrder CarOrder { get; set; }
@@ -34,9 +36,11 @@ public class CarOrderMain : PageModel
         SignInManager<IdentityUser> signInManager,
         UserManager<IdentityUser> userManager,
         ICarOrderRepository carOrderRepository,
-        IHttpContextAccessor httpContextAccessor
+        IHttpContextAccessor httpContextAccessor,
+        EmailSender emailSender
     )
     {
+        _emailSender = emailSender;
         _carOrderRepository = carOrderRepository;
         _carOfferRepository = carOfferRepository;
         _signInManager = signInManager;
@@ -50,14 +54,20 @@ public class CarOrderMain : PageModel
         CarOffer = await _carOfferRepository.GetAsync(urlHandle);
         var notificationJson = (string)TempData["Notification"];
         var smallOrderJson = (string)TempData["CarOrderSmall"];
-        var modelStateJson = _session.GetString("ModelState");
+        // var modelStateJson = _session.GetString("ModelState");
         var addCarOrderJson = _session.GetString("AddCarOrder");
-        if (!string.IsNullOrEmpty(modelStateJson))
-        {
-            var deserializedModelState = DeserializeModelState(modelStateJson);
-            ModelState.Merge(deserializedModelState);
-            _session.Remove("ModelState");
-        }
+        // if (!string.IsNullOrEmpty(modelStateJson))
+        // {
+        //     var deserializedModelState = DeserializeModelState(modelStateJson);
+        //     var newModelState = new ModelStateDictionary();
+        //
+        //     foreach (var keyValuePair in deserializedModelState)
+        //     {
+        //         newModelState.SetModelValue(keyValuePair.Value);
+        //     }
+        //     ModelState.Merge(deserializedModelState);
+        //     _session.Remove("ModelState");
+        // }
 
         if (notificationJson != null)
         {
@@ -67,8 +77,8 @@ public class CarOrderMain : PageModel
         if (!string.IsNullOrEmpty(addCarOrderJson))
         {
             CarOrder = JsonConvert.DeserializeObject<AddCarOrder>(addCarOrderJson)!;
-        }
-        else if (smallOrderJson != null)
+            
+        }else if (smallOrderJson != null)
         {
             CarOrderSmall carOrderSmall = JsonSerializer.Deserialize<CarOrderSmall>(smallOrderJson)!;
             TempData["CarOrderSmall"] = JsonSerializer.Serialize(carOrderSmall);
@@ -89,10 +99,15 @@ public class CarOrderMain : PageModel
     public async Task<IActionResult> OnPost(string urlHandle)
     {
         var currentUser = await _userManager.GetUserAsync(HttpContext.User);
-
         var totalPrice = int.Parse(Request.Form["spanTotalPriceValue"].ToString());
         var carOfferId = Guid.Parse(Request.Form["carOfferIdField"].ToString());
-        ValidateAddOrder();
+        var result = ValidateAddOrder(urlHandle);
+        
+        if (result != null)
+        {
+            return result;
+        }
+        
         if (currentUser != null && _signInManager.IsSignedIn(User))
         {
             if (ModelState.IsValid)
@@ -118,72 +133,65 @@ public class CarOrderMain : PageModel
                 };
 
                 await _carOrderRepository.AddAsync(carOrder);
-
+                await OnPostSendEmailAsync();
                 var notification = new Notification
                 {
                     Message = "Our order was successful, wait for Email.",
                     Type = NotificationType.Success
                 };
-
+                
                 TempData["Notification"] = JsonSerializer.Serialize(notification);
                 return RedirectToPage("/CarOffers/CarOffersMain");
             }
         }
 
+        return RedirectWithError(urlHandle,"Something went wrong, try again")!;
+    }
+
+    private IActionResult? RedirectWithError(string urlHandle, string message)
+    {
         var notificationError = new Notification
         {
-            Message = "Something went wrong, try again",
+            Message = message,
             Type = NotificationType.Error
         };
-        _session.SetString("ModelState", JsonSerializer.Serialize(ModelState));
         _session.SetString("AddCarOrder", JsonSerializer.Serialize(CarOrder));
         TempData["Notification"] = JsonSerializer.Serialize(notificationError);
-
-
+        
         return RedirectToPage("/CarOrders/CarOrderMain", new { urlHandle });
     }
 
-    private void ValidateAddOrder()
+    private IActionResult? ValidateAddOrder(string urlHandle)
     {
-        if (CarOrder.StartDate.Date > CarOrder.EndDate.Date)
+        if (CarOrder.StartDate.Date.CompareTo(CarOrder.EndDate.Date) >= 0)
         {
-            ModelState.AddModelError("CarOrder.StartDate",
-                $"{nameof(CarOrder.StartDate)} end date must be past start date");
+            return RedirectWithError(urlHandle,"End date must be past start date");
         }
-        else if (CarOrder.StartDate.Date < DateTime.Now.Date)
+        if (CarOrder.StartDate.Date.CompareTo(DateTime.Now.Date) < 0)
         {
-            ModelState.AddModelError("CarOrder.StartDate",
-                $"{nameof(CarOrder.StartDate)} can only be today's date or future date.");
+            return RedirectWithError(urlHandle,"Start date can only be today's date or future date.");
         }
-        else if (CarOrder.EndDate.Date > DateTime.Now.Date.AddDays(1))
+        if (CarOrder.EndDate.Date.CompareTo(DateTime.Now.Date.AddDays(1)) < 0)
         {
-            ModelState.AddModelError("CarOrder.EndDate",
-                $"{nameof(CarOrder.EndDate)} can only be future date.");
+            return RedirectWithError(urlHandle,"End date can only be a future date.");
         }
+
+        return null;
     }
 
-    public async Task SendEmailAsync(string recipientEmail, string subject, string message)
+    public async Task OnPostSendEmailAsync()
     {
-        var senderEmail = "your-email@example.com";
-        var senderPassword = "your-email-password";
+        string email = "mateusz.charczuk10@gmail.com";
+        string subject = "Hello from SendGrid";
+        string message = "This is the email message.";
 
-        var smtpClient = new SmtpClient("smtp.example.com", 587); // Replace with your SMTP server details
-        smtpClient.EnableSsl = true;
-        smtpClient.UseDefaultCredentials = false;
-        smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
-
-        var mailMessage = new MailMessage();
-        mailMessage.From = new MailAddress(senderEmail);
-        mailMessage.To.Add(new MailAddress(recipientEmail));
-        mailMessage.Subject = subject;
-        mailMessage.Body = message;
-
-        await smtpClient.SendMailAsync(mailMessage);
-    }
-
-    private ModelStateDictionary DeserializeModelState(string modelStateValue)
-    {
-        var deserializedModelState = JsonConvert.DeserializeObject<ModelStateDictionary>(modelStateValue);
-        return deserializedModelState;
+        if (await _emailSender.SendEmailAsync(email, subject, message))
+        {
+            
+        }
+        else
+        {
+            Console.WriteLine("asdfsdjfpsdnmasdfasfsdfsdfasdfg");
+        }
     }
 }

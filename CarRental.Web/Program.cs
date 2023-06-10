@@ -1,9 +1,11 @@
+using CarRental.Web.Controllers;
 using CarRental.Web.Data;
 using CarRental.Web.Repositories;
 using CarRental.Web.Repositories.BlogRepo;
 using CarRental.Web.Repositories.CarBDRepo;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +51,9 @@ builder.Services.AddScoped<ICarOfferRepository, CarOfferRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICarTagRepository, CarTagRepository>();
 builder.Services.AddScoped<ICarOrderRepository, CarOrderRepository>();
+builder.Services.AddTransient<EmailSender>();
+
+
 builder.Services.AddSession();
 var app = builder.Build();
 

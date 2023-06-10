@@ -93,3 +93,5 @@ C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\CarRen
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\CarRental.Web.genruntimeconfig.cache
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\ref\CarRental.Web.dll
 C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\obj\Debug\net7.0\scopedcss\Pages\Shared\_LayoutPlain.cshtml.rz.scp.css
+C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\bin\Debug\net7.0\SendGrid.dll
+C:\Users\mateu\Documents\GitHub\Car_rental\CarRental.Web\bin\Debug\net7.0\StarkbankEcdsa.dll

@@ -11,25 +11,40 @@
   <component name="ChangeListManager">
     <list default="true" id="c4ba8a0b-fc70-4305-b52c-16dba4077f75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarRental/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarRental/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/CarRental.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/CarRental.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/Blogs/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/Blogs/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/Blogs/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/Blogs/List.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Add.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOffers/List.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Admin/CarOrders/List.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/BlogMainPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/BlogMainPage.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Blog/Details.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOffersMain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOffers/CarOffersMain.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/CarOrders/CarOrderMain.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Index.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_LayoutPlain.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Pages/Shared/_LayoutPlain.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/CarRental.Web.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/bin/Debug/net7.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/CarRental.Web.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/CarRental.Web.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/CarRental.Web.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/ref/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/ref/CarRental.Web.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/refint/CarRental.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/Debug/net7.0/refint/CarRental.Web.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarRental.Web/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/CarRental.Web/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +191,14 @@
       <workItem from="1685467914143" duration="2144000" />
       <workItem from="1685553637056" duration="15022000" />
       <workItem from="1685619403682" duration="424000" />
-      <workItem from="1685622297247" duration="3256000" />
+      <workItem from="1685622297247" duration="3441000" />
+      <workItem from="1685647835646" duration="1575000" />
+      <workItem from="1685651222221" duration="76000" />
+      <workItem from="1685657353636" duration="2569000" />
+      <workItem from="1685983213899" duration="9954000" />
+      <workItem from="1685994770161" duration="3471000" />
+      <workItem from="1686337081703" duration="332000" />
+      <workItem from="1686428732692" duration="280000" />
     </task>
     <servers />
   </component>
