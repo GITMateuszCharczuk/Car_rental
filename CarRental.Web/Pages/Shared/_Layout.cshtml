@@ -17,92 +17,121 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">CarRental.Web</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/CarOffers/CarOffersMain">Cars</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Blog/BlogMainPage">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
-                    </li>
-
-
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownAdmin">
-                                Blog section
-                            </a>
-                            <ul class="dropdown-menu" area-lebelledby="navbarDropdownAdmin">
-                                <li>
-                                    <a class="dropdown-item" href="/admin/blogs/add">Add Blog Post</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/admin/blogs/list">Display list of blogs</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownCarSection">
-                                Car section
-                            </a>
-                            <ul class="dropdown-menu" area-lebelledby="navbarDropdownCarSection">
-                                <li>
-                                    <a class="dropdown-item" href="/admin/caroffers/add">Add Car offer</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/admin/caroffers/list">Display list of Car offers</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/admin/carorders/list">Display list of orders</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownUsersSection">
-                                Users section
-                            </a>
-                            <ul class="dropdown-menu" area-lebelledby="navbarDropdownUsersSection">
-                                <li>
-                                    <a class="dropdown-item" href="/admin/users/index">Display list of users</a>
-                                </li>
-                            </ul>
-                        </li>
-                    }
-                </ul>
-                <div class="d-flex align-items-center">
+    <div class="">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg d-flex justify-content-between p-0">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="https://res.cloudinary.com/dpg94mnti/image/upload/v1689706005/obraz_2023-07-18_204644747_vij4hc.png" alt="" style="width: 9em">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+                <div class="navbar-collapse collapse align-items-center justify-content-end">
                     @if (signInManager.IsSignedIn(User))
                     {
-                        <div class="me-3 text-light">
+                        <div class="me-3 text-dark">
                             @User?.Identity?.Name
                         </div>
 
-                        <a href="/logout" class="btn bg-light text-dark me-3">Logout</a>
+                        <a href="/logout" class="btn text-dark me-4 my-2" style="background-color: #f0f3f8; border-radius: 12px!important;font-size: 1em;">Logout</a>
                     }
                     else
                     {
-                        <a href="/login" class="btn bg-light text-dark me-3">Login</a>
-                        <a href="/register" class="btn bg-light text-dark me-3">Register</a>
+                        <a href="/login" class="btn text-dark me-4 my-2" style="background-color: #f0f3f8; border-radius: 12px!important;font-size: 1em;">Login</a>
+
+                        <a href="/register" class="btn text-dark" style="background-color: #f0f3f8; border-radius: 12px!important;font-size: 1em;">Register</a>
                     }
                 </div>
+
             </div>
-        </div>
-    </nav>
+        </nav>
+        <nav class="navbar navbar-expand-lg  navbar-toggleable-lg border-top border-bottom border-light p-0" style="border-width: 0.1em!important;">
+            <div class="container">
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item border-start border-light p-2" style="border-width: 0.1em!important;">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item border-start border-light p-2" style="border-width: 0.1em!important;">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CarOffers/CarOffersMain">Cars</a>
+                        </li>
+                        <li class="nav-item border-start border-light p-2" style="border-width: 0.1em!important;">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Blog/BlogMainPage">Blog</a>
+                        </li>
+                        <li class="nav-item border-start border-light p-2" style="border-width: 0.1em!important;">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item border-start border-light p-2" style="border-width: 0.1em!important;">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Contact</a>
+                        </li>
+
+
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown p-2 border-start border-light" style="border-width: 0.1em!important;">
+                                <a class="nav-link dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownAdmin">
+                                    Blog section
+                                </a>
+                                <ul class="dropdown-menu" area-lebelledby="navbarDropdownAdmin">
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/blogs/add">Add Blog Post</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/blogs/list">Display list of blogs</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown p-2 border-start border-light" style="border-width: 0.1em!important;">
+                                <a class="nav-link dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownCarSection">
+                                    Car section
+                                </a>
+                                <ul class="dropdown-menu" area-lebelledby="navbarDropdownCarSection">
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/caroffers/add">Add Car offer</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/caroffers/list">Display list of Car offers</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/carorders/list">Display list of orders</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown p-2 border-start border-light" style="border-width: 0.1em!important;">
+                                <a class="nav-link dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" area-expanded="false" id="navbarDropdownUsersSection">
+                                    Users section
+                                </a>
+                                <ul class="dropdown-menu" area-lebelledby="navbarDropdownUsersSection">
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/users/index">Display list of users</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="navbar-collapse collapse justify-content-end">
+                        <ul class="nav flex-row text-black">
+                            <li class="nav-item p-3 text-end ">
+                                <a href="#" class="nav-link p-0 text-black "><i class="bi-facebook me-2" width="24" height="24"></i>facebook</a>
+                            </li>
+                            <li class="nav-item p-3 me-2 text-end ">
+                                <a href="#" class="nav-link p-0 text-black "><i class="bi-instagram me-2" width="24" height="24"></i>instagram</a>
+                            </li>
+                            <li class="nav-item p-3 text-end ">
+                                <a href="#" class="nav-link p-0 text-black "><i class="bi-twitter me-2" width="24" height="24"></i>twitter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
-@* <div style="display: flex; flex-direction: column; justify-content: space-between"> *@
+
 <main role="main">
     @RenderBody()
 </main>

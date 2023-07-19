@@ -3,7 +3,7 @@
   <component name="EfCoreDialogsState">
     <option name="keyValueStorage">
       <map>
-        <entry key="Common:7f9c1499-eb43-4852-8e72-46f60346c05f:dbContext" value="CarRental.Web.Data.CarDbContext" />
+        <entry key="Common:7f9c1499-eb43-4852-8e72-46f60346c05f:dbContext" value="CarRental.Web.Data.AuthDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />

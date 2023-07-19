@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/car-rental-serv/databases/CarRentalCarDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:CarRentalCarDbConnectionString",
+      "dynamicId": null
+    },
+    "mssql2": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/car-rental-serv/databases/CarRentalBlogDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:CarRentalBlogDbConnectionString",
+      "dynamicId": null
+    },
+    "mssql3": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/car-rental-serv/databases/CarRentalAuthDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:CarRentalAuthDbConnectionString",
+      "dynamicId": null
+    }
+  }
+}

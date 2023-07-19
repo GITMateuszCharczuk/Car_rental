@@ -13,7 +13,7 @@
         <div class="row align-items-center g-5 py-5 my-5 ">
             <div class="col-12 justify-content-center d-flex">
                 <div class="justify-content-center col-9">
-                    <div class="col box-shadow" >
+                    <div class="col box-shadow">
                         <h1 class="display-5 text-white fw-bolder lh-1 mb-5 " style="font-size: 350%!important;
                                                                                      color: white;
                                                                                      -webkit-text-fill-color: white; /* Safari */
@@ -23,7 +23,7 @@
                             Start your own journey
                         </h1>
                         <div class="justify-content-start col-7">
-                            <h3 class="lead fw-normal mb-5 text-white" >
+                            <h3 class="lead fw-normal mb-5 text-white">
                                 Embark on your adventure with our hassle-free car rental service, empowering you to start your own journey wherever the road may take you.
                             </h3>
                         </div>
@@ -35,13 +35,13 @@
 </div>
 <div class="container pt-5 mt-5">
     <h1 class="mb-3">New stuff</h1>
-    <div style="overflow-x: scroll" class="mb-3">
-        <div style=";width: fit-content" class="scrollbar">
-            <div class="mb-3 justify-content-start d-flex">
-                @if (Model.CarOffers != null && Model.CarOffers.Any())
+    @if (Model.CarOffers != null && Model.CarOffers.Any())
+    {
+        <div class="swiper-container mb-2 pb-4" style="overflow-x: scroll;!important;">
+            <div class="swiper-wrapper">
+                @foreach (var carOffer in Model.CarOffers)
                 {
-                    foreach (var carOffer in Model.CarOffers)
-                    {
+                    <div class="swiper-slide" style="width: auto;!important">
                         <div style="width: 400px" class="px-2 h-100">
                             <div style="border-radius: 20px!important;" class="card shadow p-2">
                                 <div class="card-img-top img-fluid mb-1">
@@ -59,7 +59,8 @@
 
                                         </div>
                                         <div style="display: flex" class="col-4 align-items-center  justify-content-end">
-                                            <a href="/caroffers/@carOffer.UrlHandle" style="border-radius: 10px!important;" class="btn btn-danger border-1 ">
+                                            <a href="/caroffers/@carOffer.UrlHandle"
+                                               style="border-radius: 10px!important;" class="btn btn-danger border-1 ">
                                                 <i class="bi bi-arrow-right"></i>
                                             </a>
                                         </div>
@@ -67,17 +68,18 @@
                                 </div>
                             </div>
                         </div>
-                    }
-                }
-                else
-                {
-                    <div class="container">
-                        <p>Car offer Was Not Found</p>
                     </div>
                 }
             </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="container">
+            <p>Car offer Was Not Found</p>
+        </div>
+    }
+
     <h1 class="mb-3 pt-5 mt-5">Latest news</h1>
     <div class="row">
         @if (Model.LatestBlogPosts != null && Model.LatestBlogPosts.Any())
@@ -154,3 +156,25 @@
         </div>
     </div>
 </div>
+
+<!-- Include the swiper.css file -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<!-- Include the swiper.js library -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+</script>
+
+<style>
+    .swiper-container.mb-2::-webkit-scrollbar {
+        display: none;
+    }
+</style>

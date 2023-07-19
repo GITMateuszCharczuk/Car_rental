@@ -38,9 +38,15 @@ public class IndexModel : PageModel
             BlogPosts = (await _blogPostRepository.GetAllAsync()).ToList();
         }
         catch (Exception e) { ; }
-
-        BlogPosts.Sort((x,y) => x.PublishedDate.CompareTo(y.PublishedDate));
-        LatestBlogPosts = BlogPosts.GetRange(0, 3);
+        if (BlogPosts.Count >= 3)
+        {
+            BlogPosts.Sort((x, y) => x.PublishedDate.CompareTo(y.PublishedDate));
+            LatestBlogPosts = BlogPosts.GetRange(0, 3);
+        }
+        else
+        {
+            LatestBlogPosts = null;
+        }
         return Page();
     }
 }

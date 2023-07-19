@@ -30,4 +30,10 @@
     <ItemGroup>
       <AdditionalFiles Include="Pages\Blog\Tags\Details.cshtml" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Pages\index.css">
+        <DependentUpon>Index.cshtml</DependentUpon>
+      </None>
+    </ItemGroup>
 </Project>

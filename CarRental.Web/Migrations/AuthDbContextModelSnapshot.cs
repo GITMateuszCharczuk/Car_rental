@@ -166,15 +166,15 @@ namespace CarRental.Web.Migrations
                         {
                             Id = "03bf295d-7983-4702-aa8d-6aa18cbc8f27",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "85ee03d3-adee-4fca-9cf9-60bdd77ceada",
+                            ConcurrencyStamp = "5147fcc5-6d93-40ca-8c69-30a9ca9731db",
                             Email = "superadmin@CarRental.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@CARRENTAL.COM",
                             NormalizedUserName = "SUPERADMIN@CARRENTAL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMOoylcs8BUUxeE8B5vRjgGm+N2iWIYHcgE7mwM2/9g3Wswlar+xuszdHLNvoabcXA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPfe+scLCWJuI6tiuSV72otX81qrwN+HHXQWVWf4VkVFORIkw+D1/YZMkdvFl5sPcw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1e255f0d-66bf-47a1-80f6-c5f30b01fc02",
+                            SecurityStamp = "5ea196d6-877d-403d-bc68-108138ad6cda",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@CarRental.com"
                         });

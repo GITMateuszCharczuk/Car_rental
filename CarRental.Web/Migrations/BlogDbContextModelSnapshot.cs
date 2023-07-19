@@ -22,7 +22,7 @@ namespace CarRental.Web.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPost", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPost", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace CarRental.Web.Migrations
                     b.ToTable("BlogPosts");
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPostComment", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPostComment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace CarRental.Web.Migrations
                     b.ToTable("BlogPostComment");
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPostLike", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPostLike", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +112,7 @@ namespace CarRental.Web.Migrations
                     b.ToTable("BlogPostLike");
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.Tag", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.Tag", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,34 +132,34 @@ namespace CarRental.Web.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPostComment", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPostComment", b =>
                 {
-                    b.HasOne("CarRental.Web.Models.Domain.BlogPost", null)
+                    b.HasOne("CarRental.Web.Models.Domain.Blog.BlogPost", null)
                         .WithMany("Comments")
                         .HasForeignKey("BlogPostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPostLike", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPostLike", b =>
                 {
-                    b.HasOne("CarRental.Web.Models.Domain.BlogPost", null)
+                    b.HasOne("CarRental.Web.Models.Domain.Blog.BlogPost", null)
                         .WithMany("Likes")
                         .HasForeignKey("BlogPostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.Tag", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.Tag", b =>
                 {
-                    b.HasOne("CarRental.Web.Models.Domain.BlogPost", null)
+                    b.HasOne("CarRental.Web.Models.Domain.Blog.BlogPost", null)
                         .WithMany("Tags")
                         .HasForeignKey("BlogPostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CarRental.Web.Models.Domain.BlogPost", b =>
+            modelBuilder.Entity("CarRental.Web.Models.Domain.Blog.BlogPost", b =>
                 {
                     b.Navigation("Comments");
 

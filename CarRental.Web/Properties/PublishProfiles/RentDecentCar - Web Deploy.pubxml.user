@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Ten plik jest wykorzystywany przez proces publikowania/pakowania projektu internetowego. Możesz dostosować zachowanie tego procesu
+ poprzez edycję tego pliku MSBuild. Aby dowiedzieć się więcej o tym działaniu, odwiedź stronę https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOWR28DbUGUKJ5i/Mhut+ewAAAAACAAAAAAAQZgAAAAEAACAAAADX4nDVo4jZJTFUDvNgbR8m0KzUxs1TiERnHA156bT2nAAAAAAOgAAAAAIAACAAAADsy/YNtnBvYp6xqUkHXJOr1DwuQG3EfrKZ2uAwdpV4IYAAAAA4NhuznV9qKJKxEP8HfrmheUdgEK6BIaVIMtxmSX5GSZkcXmHF6C1RwH3k/fSdsnmymGGPBcNpDc4zimpT/RzDBa3uDQdlH9Vgg/dp597Xh/xwHVsdySGWKyhFWpWxL6Mqv2+YgUjZXqRaTF6HRh5bcEotqnOW/fQhZQwY+Z89AUAAAACncRGPWVG5GmZEIuV7cFDd/F1FOZdUGom6MKRKsIdwHmSI3GVf7cVg/CnFHmYyV9KbatIHMPljRE0pcS9iNwqb</EncryptedPassword>
+    <History>True|2023-06-26T17:02:43.1329025Z;True|2023-06-26T17:48:42.7952018+02:00;True|2023-06-26T17:44:06.2930162+02:00;True|2023-06-26T16:58:06.3525489+02:00;False|2023-06-26T16:37:40.5862817+02:00;False|2023-06-26T16:32:10.8905988+02:00;False|2023-06-26T16:29:15.3744473+02:00;False|2023-06-26T16:27:24.5913498+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="CarRentalAuthDbConnectionString">
+      <Value>Data Source=tcp:car-rental-serv.database.windows.net,1433%3bInitial Catalog=CarRentalAuthDB%3bUser Id=adminSql%40car-rental-serv%3bPassword=12Adrgfbc</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CarRentalBlogDbConnectionString">
+      <Value>Data Source=tcp:car-rental-serv.database.windows.net,1433%3bInitial Catalog=CarRentalBlogDB%3bUser Id=adminSql%40car-rental-serv%3bPassword=12Adrgfbc</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CarRentalCarDbConnectionString">
+      <Value>Data Source=tcp:car-rental-serv.database.windows.net,1433%3bInitial Catalog=CarRentalCarDB%3bUser Id=adminSql%40car-rental-serv%3bPassword=12Adrgfbc</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

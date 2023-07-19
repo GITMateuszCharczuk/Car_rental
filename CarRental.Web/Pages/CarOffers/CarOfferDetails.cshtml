@@ -23,19 +23,25 @@
                 <h1>@Model.CarOffer.Heading</h1>
             </div>
         </div>
-        <div class="mb-4" style="width: 100%;">
+        <div class="mb-lg-3 mb-sm-1" style="width: 100%;">
             <img id="mainImage" src="@Model.CarOffer.ImageUrls.First().Url" class="img-fluid" style=" display: inline-block;border-radius: 20px!important;" alt=""> @*style="max-width: 100%;height: auto;object-fit: cover;" *@
         </div>
-        <div id="imageGallery" class="image-gallery row justify-content-start mb-5" style="width: 100%!important;overflow-x: auto!important;white-space: nowrap!important;">
-            @foreach (var imgUrl in Model.CarOffer.ImageUrls)
-            {
-                <a href="" class="col-3 mb-4" style="display: inline-block">
-                    <div style="border-radius: 10px!important;" class="card  me-1 bg-body-tertiary border border-0 h-100 ">
-                        <img style="border-radius: 7px!important;display: inline-block!important;" src="@imgUrl.Url" class="card-img-top galleryImageS" alt=""> @*style="max-width: 100%;height: auto;object-fit: cover;" *@
+        @* <div id="imageGallery" class="image-gallery row justify-content-start mb-5" style="width: 100%!important;overflow-x: auto!important;white-space: nowrap!important;"> *@
+        <div class="swiper-container mb-2 pb-4" style="overflow-x: scroll;!important;">
+            <div class="swiper-wrapper" style="width: auto;!important">
+                @foreach (var imgUrl in Model.CarOffer.ImageUrls)
+                {
+                    <div class="swiper-slide" style="width: 33.33%!important;">
+                        <a href="" class="mb-4">
+                            <div style="border-radius: 10px!important;" class=" border border-0 mx-sm-1 mx-md-2">
+                                <img style="border-radius: 7px!important;" src="@imgUrl.Url" class="galleryImageS img-fluid card  " alt=""> 
+                            </div>
+                        </a>
                     </div>
-                </a>
-            }
+                }
+            </div>
         </div>
+        @* </div> *@
         <h2 class="mb-4">Opis i dane techniczne</h2>
         <div class="row justify-content-start mb-5">
             <div class="pe-2 col">
@@ -157,7 +163,7 @@
         </div>
     </div>
 </div>
-<div style="border-radius: 15px!important;height: 10%!important" class="card w-full col-lg-4 col-md-4 col-sm-12 pt-3 ps-4 pe-4 pb-3 border border-dark shadow">
+<div style="border-radius: 15px!important;height: 10%!important" class="card w-full col-lg-4 col-md-10 col-sm-10 pt-3 ps-4 pe-4 pb-3 border border-dark shadow">
     <form method="post">
         <div class="mb-2">
             <h4 > Rezerwuj</h4>
@@ -226,6 +232,12 @@
 </div>
 
 @section Scripts {
+    <!-- Include the swiper.css file -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Include the swiper.js library -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <script>
     $(document).ready(function () {
             var driverSurcharge = 200;
@@ -237,7 +249,7 @@
             var mainImage = $('#mainImage');
             
             
-            $('.card-img-top.galleryImageS').on('click',function(event) {
+            $('.galleryImageS').on('click',function(event) {
                 event.preventDefault();
                 console.log($(this))
                  var newImageSrc = event.target.getAttribute('src');
@@ -278,6 +290,20 @@
     
             
         });
+    var swiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+        
             
-        </script>
+    </script>
 }
+
+<style>
+    .swiper-container.mb-2::-webkit-scrollbar {
+        display: none;
+    }
+</style>
