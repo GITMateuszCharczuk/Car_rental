@@ -24,7 +24,6 @@ public class Edit : PageModel
 
     [BindProperty] [Required] public string Tags { get; set; }
     [BindProperty] public EditBlogPostRequest BlogPost { get; set; }
-
     [BindProperty] public IFormFile FeaturedImage { get; set; }
 
     public async Task OnGet(Guid id)

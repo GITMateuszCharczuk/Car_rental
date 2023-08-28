@@ -1,19 +1,140 @@
 @page
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @model CarRental.Web.Pages.Contact
 
-@{
-    Layout = null;
-}
+<div class="container">
+    <h1 class="mt-4 mb-4">Contact Us</h1>
+    <partial name="_Notification"></partial>
+    <div class="d-flex justify-content-between">
+        <div class="card shadow-lg border p-3 mb-5" style="border-radius: 15px!important;">
+            <h2 class="pb-2 fw-bold border-4 border-bottom border-danger">Company details</h2>
+            <p class="fs-4 fw-bold mb-3 mt-2">
+                Kicksterent sp. z o.o.<br/>
+                ul. Warszawska 1A <br/>
+                87-162 Lubicz Górny
+            </p>
+            <p class="fs-4 fw-bold mb-4">
+                NIP 725 22 89 268<br/>
+                REGON 383354675<br/>
+                KRS 0000786267
+            </p>
+            <button class="nav-link btn mb-3 border border-1 text-black justify-content-start" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;width: 50%!important;">
+                <i class="bi bi-telephone me-2"></i>609 544 872
+            </button>
+            <button class="nav-link btn mb-4 border border-1 text-black justify-content-start" style="background-color: #f0f3f8;text-decoration: none; border-radius: 15px!important;width: 70%!important;">
+                <i class="bi bi-envelope me-2"></i>car.rental@gmail.com
+            </button>
+            <p class="">
+                <span class="fw-bold">
+                    We are open from Monday<br/>
+                    to Friday
+                </span>, from 9:00 AM to 5:00 PM.<br/>
+                For <span class="fw-bold">Saturday and Sunday</span>, please contact us by <br/> phone or email."
+            </p>
+        </div>
+        <div class="col-7 p-4 card shadow-lg" style="border-radius: 15px!important;height: fit-content">
+            <form method="post">
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" required class="form-control" id="name" asp-for="UserMessage.Name">
+                        <span class="text-danger" asp-validation-for="UserMessage.Name"></span>
+                    </div>
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="text" required class="form-control" id="surname" asp-for="UserMessage.Surname">
+                        <span class="text-danger" asp-validation-for="UserMessage.Surname"></span>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="form-group col-md-12 p-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" required class="form-control" id="email" asp-for="UserMessage.EmailAddress">
+                        <span class="text-danger" asp-validation-for="UserMessage.EmailAddress"></span>
+                    </div>
+                </div>
+                <div class="form-row mb-3 d-flex">
+                    <div class="form-group col-md-6 p-2 ">
+                        <label for="phone" class="form-label">Phone number</label>
+                        <input type="number" required class="form-control" id="phone" asp-for="UserMessage.PhoneNumber">
+                        <span class="text-danger" asp-validation-for="UserMessage.PhoneNumber"></span>
+                    </div>
+                    <div class="form-group col-md-6  p-2">
+                        <label for="car" class="form-label">Car</label>
+                        <select class="form-select" id="car" aria-label="Gearbox - type" asp-for="UserMessage.CarOfferId">
+                            @if (Model.CarOffers != null && Model.CarOffers.Any())
+                            {
+                                <option>Loading...</option>
+                                @* foreach (var car in Model.CarOffers) *@
+                                @* { *@
+                                @*     <option value="@car.Id">@car.Heading</option> *@
+                                @* } *@
+                            }
+                        </select>
+                        <span class="text-danger" asp-validation-for="UserMessage.CarOfferId"></span>
+                    </div>
+                </div>
+                <div class="p-2 mb-2">
+                    <label for="shortDescription" class="form-label">message</label>
+                    <textarea class="form-control floatingTextarea2" required id="shortDescription" asp-for="UserMessage.Message"></textarea>
+                    <span class="text-danger" asp-validation-for="UserMessage.Message"></span>
+                </div>
+                <div class="d-flex justify-content-end p-2">
+                    <div class="">
+                        <button class="btn btn-danger p-2" type="submit" style="border-radius: 15px!important">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+@section Scripts
+{    
+    <script>
+        $(document).ready(function () {
+            // Function to populate the dropdown with car offers data
+            function populateDropdown(carOffers) {
+                var dropdown = $("#car");
+                dropdown.empty();
+                if (carOffers.length > 0) {
+                    $.each(carOffers, function (index, car) {
+                        dropdown.append($("<option></option>")
+                            .attr("value", car.id)
+                            .text(car.heading));
+                    });
+                } else {
+                    dropdown.append($("<option></option>").text("No car offers found"));
+                }
+            }
+
+            // AJAX request to get car offers and populate the dropdown
+            $.ajax({
+                type: "GET",
+                url: "/Contact?handler=CarOffers", 
+                dataType: "json",
+                success: function (data) {
+                    populateDropdown(data);
+
+                    // Update the selected value if the UserMessage.CarOfferId has a value
+                    var selectedCarId = "@Model.UserMessage.CarOfferId";
+                    if (selectedCarId) {
+                        $("#car").val(selectedCarId);
+                    }
+                },
+                error: function () {
+                    populateDropdown([]);
+                }
+            });
+
+            // Event handler to update UserMessage.CarOfferId when the user selects an option
+            $("#car").change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    "@Model.UserMessage.CarOfferId = " + selectedValue;
+                }
+            });
+        });
+    </script>
+}

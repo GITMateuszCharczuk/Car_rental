@@ -14,7 +14,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<BlogDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalBlogDbConnectionString")));
+    options.UseSqlServer(builder.Configuration
+        .GetConnectionString("CarRentalBlogDbConnectionString")));
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalAuthDbConnectionString")));
