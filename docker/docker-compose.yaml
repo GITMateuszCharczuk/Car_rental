@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  BlogSqlServer:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver1
+    ports:
+      - "1433:1433" # Expose on port 1433
+    environment:
+      SA_PASSWORD: "YourStrong@Password"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver1_data:/var/opt/mssql
+
+  CarSqlServer:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver2
+    ports:
+      - "1434:1433" # Expose on port 1434
+    environment:
+      SA_PASSWORD: "YourStrong@Password"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver2_data:/var/opt/mssql
+
+  IdentitySqlServer:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver3
+    ports:
+      - "1435:1433" # Expose on port 1435
+    environment:
+      SA_PASSWORD: "YourStrong@Password"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver3_data:/var/opt/mssql
+
+volumes:
+  sqlserver1_data:
+  sqlserver2_data:
+  sqlserver3_data:
